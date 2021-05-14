@@ -1,0 +1,17 @@
+//- page.pug
+extends ../layout.pug
+
+block variables
+  -var header1 = 'This is HEADER1'
+  -var paragraph1 = 'This is paragraph ONE'
+  -var paragraph2 = 'This is paragraph TWO'
+  -var interpolated = 'interpolated variable'
+
+
+block prepend content
+  p prepended paragraph
+block append content
+  p appended paragraph
+  ul
+  each val in [1, 2, 3, 4, 5]
+    li= val
