@@ -1,9 +1,18 @@
 //- page.pug
 extends ../layout.pug
+include ../../assets/blocks/main-menu/main-menu
 
 block variables
-  include ../../main-menu/main-menu.pug
+  -
+    var indexPageHead = {
+      title : 'Свадебный салон Всё Невестам - свадебные платья в Москве',
+      keywords : 'свадебный салон в москве, магазин свадебных платьев',
+      description : 'Свадебный салон низких цен у м. Аэропорт +7-985-635-5151 Всё Невестам - Свадебные платья любых размеров недорого.',
+    }
+    //- var globalHead = {
+    //-   canonical : 'http://www.vse-nevestam.ru',
+    //- }
 
-block content
+append content
   .container
     +showMainMenu
