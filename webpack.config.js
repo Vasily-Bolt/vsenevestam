@@ -75,7 +75,7 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin( {
-      template: './pages/1/index.pug',
+      template: './pages/index/index.pug',
       filename: 'index.html',
       inject: true,
       chunks: ['main'],
@@ -98,6 +98,9 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/assets/favicons/favicon.ico'),
           to: path.resolve(__dirname, 'dist')
+        },{
+          from: path.resolve(__dirname, 'src/assets/images/'),
+          to: path.resolve(__dirname, 'dist/images/')
         },
     ]}),
     new webpack.ProvidePlugin({
@@ -119,7 +122,7 @@ module.exports = {
         use: cssLoaders('sass-loader')
       },
       {
-        test: /\.(png|jpg|svg|gif)$/,
+        test: /\.(png|jpg|JPG|svg|gif)$/,
         use: ['file-loader']
       },
       {

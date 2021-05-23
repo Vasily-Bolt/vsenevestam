@@ -1,6 +1,7 @@
 //- page.pug
 extends ../layout.pug
 include ../../assets/blocks/main-menu/main-menu
+include ../../assets/blocks/dress-card/dress-card
 
 block variables
   -
@@ -9,10 +10,11 @@ block variables
       keywords : 'свадебный салон в москве, магазин свадебных платьев',
       description : 'Свадебный салон низких цен у м. Аэропорт +7-985-635-5151 Всё Невестам - Свадебные платья любых размеров недорого.',
     }
-    //- var globalHead = {
-    //-   canonical : 'http://www.vse-nevestam.ru',
-    //- }
 
 append content
   .container
     +showMainMenu
+    +dressCard({imagePath: './images/IMG_0944.JPG'})
+    +dressCard({imagePath: './images/IMG_0963.JPG'})
+    +dressCard({imagePath: './images/IMG_0947.JPG'})
+    // Потом сделать на основе dressCard вывод для основного меню и отдельно для каталога
