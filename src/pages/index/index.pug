@@ -2,6 +2,7 @@
 extends ../layout.pug
 include ../../assets/blocks/main-menu/main-menu
 include ../../assets/blocks/dress-card/dress-card
+include ../../assets/blocks/top-sign/top-sign
 
 block variables
   -
@@ -10,11 +11,51 @@ block variables
       keywords : 'свадебный салон в москве, магазин свадебных платьев',
       description : 'Свадебный салон низких цен у м. Аэропорт +7-985-635-5151 Всё Невестам - Свадебные платья любых размеров недорого.',
     }
+    var menuList = [
+        {
+          name : 'Пышные',
+          href : '',
+        },{
+          name : 'Греческие',
+          href : '',
+        },{
+          name : 'Кружевные',
+          href : '',
+        },{
+          name : 'Прямые',
+          href : '',
+        },{
+          name : 'Русалка',
+          href : '',
+        },{
+          name : 'Беременным',
+          href : '',
+        },{
+          name : 'С рукавами',
+          href : '',
+        },{
+          name : 'Со шлейфом',
+          href : '',
+        },{
+          name : 'До 15000',
+          href : '',
+        },{
+          name : 'Контакты',
+          href : '',
+        },
+      ]
 
 append content
   .container
-    +showMainMenu
-    +dressCard({imagePath: './images/IMG_0944.JPG'})
-    +dressCard({imagePath: './images/IMG_0963.JPG'})
-    +dressCard({imagePath: './images/IMG_0947.JPG'})
-    // Потом сделать на основе dressCard вывод для основного меню и отдельно для каталога
+    +top-sign
+    +showMainMenu(menuList)
+    .dress-cards-list
+      .dress-cards-list__card-container
+        +dressCard({imagePath: './images/IMG_0944.JPG', href: '/images/IMG_0944.JPG'})
+      .dress-cards-list__card-container
+        +dressCard({imagePath: './images/IMG_0963.JPG', titleInMiddle: 'Lorem ipsum dsadklj;lsafjadks '})
+      .dress-cards-list__card-container
+        +dressCard({imagePath: './images/IMG_0947.JPG', titleUnder: 'It\'s under', underText: ['Wedding dress Maria', '40 000р']})
+      .dress-cards-list__card-container
+        +dressCard({imagePath: './images/IMG_0949.JPG', href: '/images/IMG_0944.JPG'})
+      // Потом сделать на основе dressCard вывод для основного меню и отдельно для каталога

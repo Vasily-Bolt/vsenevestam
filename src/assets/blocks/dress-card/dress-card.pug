@@ -1,3 +1,22 @@
 mixin dressCard(dressCard)
-  .dress-card
+
+  //ЧТОБЫ ССЫЛКА СОЗДАВАЛАСЬ НА ВСЁ, а не только на картинку!!!
+  mixin cardAndText 
     img.dress-card__img(src=dressCard.imagePath)
+    
+    if ( dressCard.titleInMiddle )
+      h4.dress-card__dress-sign.dress-card__dress-sign--on-image.dress-card__dress-sign--centered.dress-card__dress-sign--grey= dressCard.titleInMiddle
+
+    if ( dressCard.titleUnder )
+      h5.dress-card__dress-sign.dress-card__dress-sign--centered= dressCard.titleUnder
+
+    if ( dressCard.underText )
+      each text in dressCard.underText
+        p.dress-card__dress-sign.dress-card__dress-sign--centered= text
+
+  .dress-card
+    if ( dressCard.href )
+      a(href=dressCard.href)
+        +cardAndText
+    else
+      +cardAndText

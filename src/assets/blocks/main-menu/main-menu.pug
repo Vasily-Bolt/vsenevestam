@@ -1,45 +1,7 @@
-mixin showMainMenu
-    -
-      var dressTypes = [
-        {
-          name : 'Пышные',
-          href : '',
-        },{
-          name : 'Греческие',
-          href : '',
-        },{
-          name : 'Кружевные',
-          href : '',
-        },{
-          name : 'Прямые',
-          href : '',
-        },{
-          name : 'Русалка',
-          href : '',
-        },{
-          name : 'Беременным',
-          href : '',
-        },{
-          name : 'С рукавами',
-          href : '',
-        },{
-          name : 'Со шлейфом',
-          href : '',
-        },{
-          name : 'До 15000',
-          href : '',
-        },
-        
-      ]
+mixin showMainMenu(menuItems)
     .main-menu.main-menu--hidden
       .main-menu__burger &#9776;
       ul.main-menu__parent-element
-        each dressType in dressTypes
+        each menuItem in menuItems
           li.main-menu__element 
-            a(href=dressType.href)= dressType.name
-        //- li.main-menu__element 
-        //-   a(href='') Пышные
-        //- li.main-menu__element
-        //-   a(href='') Греческие
-        //- li.main-menu__element
-        //-   a(href='') Кружевные
+            a(href=menuItem.href)= menuItem.name
