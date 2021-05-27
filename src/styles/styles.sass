@@ -1,8 +1,13 @@
+@import @/styles/resizable-fonts.sass
+
 @import @/styles/breakpoints.sass
 @import @/assets/blocks/main-menu/main-menu.sass
 @import @/assets/blocks/dress-card/dress-card.sass
 @import @/assets/blocks/dress-cards-list/dress-cards-list.sass
 @import @/assets/blocks/top-sign/top-sign.sass
+
+html
+  @include fluidFontSize(22px, 14px, 320px, 1320px)
 
 body
   font-family: sans-serif
