@@ -1,66 +1,26 @@
 //- page.pug
 extends ../layout.pug
-include ../../assets/blocks/main-menu/main-menu
 include ../../assets/blocks/dress-card/dress-card
-include ../../assets/blocks/top-sign/top-sign
+include ../../assets/blocks/dress-cards-list/dress-cards-list
 
-block variables
+
+
+append variables
   -
     var indexPageHead = {
       title : 'Свадебный салон Всё Невестам - свадебные платья в Москве',
       keywords : 'свадебный салон в москве, магазин свадебных платьев',
       description : 'Свадебный салон низких цен у м. Аэропорт +7-985-635-5151 Всё Невестам - Свадебные платья любых размеров недорого.',
     }
-    var menuList = [
-        {
-          name : 'Пышные',
-          href : '',
-        },{
-          name : 'Греческие',
-          href : '',
-        },{
-          name : 'Кружевные',
-          href : '',
-        },{
-          name : 'Прямые',
-          href : '',
-        },{
-          name : 'Русалка',
-          href : '',
-        },{
-          name : 'Беременным',
-          href : '',
-        },{
-          name : 'С рукавами',
-          href : '',
-        },{
-          name : 'Со шлейфом',
-          href : '',
-        },{
-          name : 'До 15000',
-          href : '',
-        },{
-          name : 'Контакты',
-          href : '',
-        },
-      ]
-    var topLogoAndInfo = {
-      topText : 'Several interesting info <img src="">',
-      logo : './images/vnlogo.png',
-      buttomText : 'More and more interesting info',
-      }
+    var dressesList = [
+      {imagePath: './images/IMG_0944.JPG', href: '/images/IMG_0944.JPG'},
+      {imagePath: './images/IMG_0963.JPG', titleInMiddle: 'Lorem ipsum dsadklj;lsafjadks '},
+      {imagePath: './images/IMG_0947.JPG', titleUnder: 'It\'s under', underText: ['Wedding dress Maria', '40 000р']},
+      {imagePath: './images/IMG_0949.JPG', href: '/images/IMG_0944.JPG'},
+    ]
+    
+    
 
 append content
   .container
-    +top-sign(topLogoAndInfo)
-    +showMainMenu(menuList)
-    .dress-cards-list
-      .dress-cards-list__card-container
-        +dressCard({imagePath: './images/IMG_0944.JPG', href: '/images/IMG_0944.JPG'})
-      .dress-cards-list__card-container
-        +dressCard({imagePath: './images/IMG_0963.JPG', titleInMiddle: 'Lorem ipsum dsadklj;lsafjadks '})
-      .dress-cards-list__card-container
-        +dressCard({imagePath: './images/IMG_0947.JPG', titleUnder: 'It\'s under', underText: ['Wedding dress Maria', '40 000р']})
-      .dress-cards-list__card-container
-        +dressCard({imagePath: './images/IMG_0949.JPG', href: '/images/IMG_0944.JPG'})
-      // Потом сделать на основе dressCard вывод для основного меню и отдельно для каталога
+    +dress-cards-list(dressesList)

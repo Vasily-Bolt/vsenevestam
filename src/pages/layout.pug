@@ -1,4 +1,6 @@
 //- layout.pug
+include ../assets/blocks/main-menu/main-menu
+include ../assets/blocks/top-sign/top-sign
 -
   var globalHead = {
     canonical : 'http://www.vse-nevestam.ru',
@@ -6,6 +8,45 @@
   }
 
 block variables
+  -
+    var menuList = [
+          {
+            name : 'Пышные',
+            href : '',
+          },{
+            name : 'Греческие',
+            href : '',
+          },{
+            name : 'Кружевные',
+            href : '',
+          },{
+            name : 'Прямые',
+            href : '',
+          },{
+            name : 'Русалка',
+            href : '',
+          },{
+            name : 'Беременным',
+            href : '',
+          },{
+            name : 'С рукавами',
+            href : '',
+          },{
+            name : 'Со шлейфом',
+            href : '',
+          },{
+            name : 'До 15000',
+            href : '',
+          },{
+            name : 'Контакты',
+            href : '',
+          },
+        ]
+      var topLogoAndInfo = {
+        topText : 'Several interesting info <img src="">',
+        logo : './images/vnlogo.png',
+        buttomText : 'More and more interesting info',
+        }
   
 doctype html
 html
@@ -24,4 +65,10 @@ html
     block head
       
   body
+    block header
+    .page-head
+      +top-sign(topLogoAndInfo)
+      +showMainMenu(menuList)
+
     block content
+    block footer

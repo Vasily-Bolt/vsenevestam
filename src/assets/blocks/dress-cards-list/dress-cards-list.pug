@@ -1,0 +1,6 @@
+mixin dress-cards-list(dressList)
+  .dress-cards-list
+    each dress in dressList
+      .dress-cards-list__card-container
+        +dressCard(dress)
+    
