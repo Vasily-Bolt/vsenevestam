@@ -3,7 +3,7 @@ extends ../layout.pug
 include ../../assets/blocks/dress-card/dress-card
 include ../../assets/blocks/dress-cards-list/dress-cards-list
 
-
+include ../../assets/articles/main-page-article/main-page-article
 
 append variables
   -
@@ -23,4 +23,6 @@ append variables
 
 append content
   .container
-    +dress-cards-list(dressesList)
+    +main-page-article
+
+    //- +dress-cards-list(dressesList)

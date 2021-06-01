@@ -1,6 +1,8 @@
 @import @/styles/resizable-fonts.sass
-
 @import @/styles/breakpoints.sass
+
+@import @/assets/articles/articles.sass
+
 @import @/assets/blocks/main-menu/main-menu.sass
 @import @/assets/blocks/dress-card/dress-card.sass
 @import @/assets/blocks/dress-cards-list/dress-cards-list.sass
@@ -13,18 +15,26 @@ body
   font-family: sans-serif
   margin: 0
 
-ul
+ul, li, h1, h2, h3, h4, h5
   margin: 0
   padding: 0
 
 li
   list-style-type: none
-  margin: 0
-  padding: 0
+
+h1, h2, h3, h4, h5
+  font-weight: normal
+  font-size: 1rem
 
 a
   text-decoration: none
   color: #343234
+
+img
+  display: block
+  width: 100%
+  height: auto
+  max-width: 100%
 
 .container
   // padding: 1rem 0.5rem 0 0.5rem
