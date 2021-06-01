@@ -44,10 +44,15 @@ block variables
           href : '',
         },
       ]
+    var topLogoAndInfo = {
+      topText : 'Several interesting info <img src="">',
+      logo : './images/vnlogo.png',
+      buttomText : 'More and more interesting info',
+      }
 
 append content
   .container
-    +top-sign
+    +top-sign(topLogoAndInfo)
     +showMainMenu(menuList)
     .dress-cards-list
       .dress-cards-list__card-container

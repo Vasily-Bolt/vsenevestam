@@ -1,5 +1,7 @@
-mixin top-sign()
+mixin top-sign(mainInfo)
   .top-sign
-    p Several interesting info
-    img.top-sign__logo(src='./images/vnlogo.png')
-    p More and more interesting info
+    div 
+      span!= mainInfo.topText
+    img.top-sign__logo(src=mainInfo.logo)
+    div 
+      span!= mainInfo.buttomText
