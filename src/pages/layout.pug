@@ -66,10 +66,13 @@ html
     block head
       
   body
-    block header
-    .page-head
-      +top-sign(topLogoAndInfo)
-      +showMainMenu(menuList)
-
-    block content
-    block footer
+    .layout-wrapper
+      .layout-header
+        block header
+          .page-head
+            +top-sign(topLogoAndInfo)
+            +showMainMenu(menuList)
+      .layout-content
+        block content
+      .layout-foot
+        block footer
