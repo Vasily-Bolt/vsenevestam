@@ -1,7 +1,12 @@
 mixin top-sign(mainInfo)
   .top-sign
-    div 
+    div
       span!= mainInfo.topText
+    div
+      img.top-sign__messengers(src='./images/everypage/phone.png')
+      img.top-sign__messengers(src='./images/everypage/viber.png')
+      img.top-sign__messengers(src='./images/everypage/whatsapp.png')
+      span= mainInfo.phoneAndMessengers
     img.top-sign__logo(src=mainInfo.logo)
     div 
       span!= mainInfo.buttomText
