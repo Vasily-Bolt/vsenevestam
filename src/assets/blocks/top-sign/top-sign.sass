@@ -9,13 +9,24 @@ $menu-show-always : $laptop-min
   display: inline-block
   vertical-align: text-top
 
+.top-sign__bottom-paragraph
+  margin: .3em 1em
+  padding: 0
+
+.top-sign__menu
+  display: flex
+  justify-content: space-between
+  text-transform: uppercase
+
 .top-sign
   font-size: 1rem
+  letter-spacing: -0.01em
   width: 100%
   text-align: center
   display: flex
   flex-direction: column
   flex-wrap: wrap
+  
 
 @media screen and (min-width: $menu-show-always)
   .top-sign
