@@ -1,0 +1,26 @@
+//- page.pug
+extends ../layout.pug
+include ../../assets/blocks/dress-card/dress-card
+include ../../assets/blocks/dress-cards-list/dress-cards-list
+
+include ../../assets/articles/main-page-article/main-page-article
+
+append variables
+  -
+    var PageHead = {
+      title : 'Каталог свадебных платьев - цены на свадебные платья',
+      keywords : 'каталог свадебных платьев, цены на свадебные платья',
+      description : 'Каталог свадебных платьев Все Невестам',
+    }
+    var dressesList = [
+      {imagePath: './images/IMG_0944.JPG', href: '/images/IMG_0944.JPG'},
+      {imagePath: './images/IMG_0963.JPG', titleInMiddle: 'Lorem ipsum dsadklj;lsafjadks '},
+      {imagePath: './images/IMG_0947.JPG', titleUnder: 'It\'s under', underText: ['Wedding dress Maria', '40 000р']},
+      {imagePath: './images/IMG_0949.JPG', href: '/images/IMG_0944.JPG'},
+    ]
+    
+    
+
+append content
+  .container
+    +dress-cards-list(dressesList)

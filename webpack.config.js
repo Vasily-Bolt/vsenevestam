@@ -53,7 +53,7 @@ module.exports = {
   mode: 'development',
   entry: {
     main: './index.js',
-    // just: './indexnot.js'
+    // catalog: './indexnot.js'
   },
   output: {
     filename: filename('js'),
@@ -77,6 +77,15 @@ module.exports = {
     new HTMLWebpackPlugin( {
       template: './pages/index/index.pug',
       filename: 'index.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/catalog.pug',
+      filename: 'catalog.html',
       inject: true,
       chunks: ['main'],
       minify: {
