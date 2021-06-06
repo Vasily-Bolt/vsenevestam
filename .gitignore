@@ -1,4 +1,4 @@
 /setPath.bat
 /.idea
-/dist
+# /dist
 /node_modules
