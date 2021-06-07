@@ -7,9 +7,10 @@ mixin top-sign(mainInfo)
       img.top-sign__messengers(src='./images/everypage/viber.png')
       img.top-sign__messengers(src='./images/everypage/whatsapp.png')
       span= mainInfo.phoneAndMessengers
-    img.top-sign__logo(src=mainInfo.logo)
+    a(href="/")
+      img.top-sign__logo(src=mainInfo.logo)
     div 
       p.top-sign__bottom-paragraph Ежедневно с 10:00 до 20:00
       p.top-sign__menu.top-sign__bottom-paragraph
-        a(href="") Свадебные платья
+        a(href="./all-dresses.html") Свадебные платья
         a(href="") Контакты

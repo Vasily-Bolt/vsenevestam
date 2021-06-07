@@ -1,6 +1,10 @@
-mixin dress-cards-list(dressList)
+mixin dress-cards-list(dressList,bottom,top,left,right)
   .dress-cards-list
-    each dress in dressList
+    each dress,index in dressList
       .dress-cards-list__card-container
-        +dressCard(dress)
-    
+        if index == 0
+          +dressCard(dress,bottom,left,right)
+        else if index == dressList.length-1
+          +dressCard(dress,top,left,right)
+        else
+          +dressCard(dress,bottom,top,left,right)

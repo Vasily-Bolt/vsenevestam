@@ -1,0 +1,20 @@
+//- page.pug
+extends ../layout.pug
+include ../../assets/blocks/dress-card/dress-card
+include ../../assets/blocks/dress-cards-list/dress-cards-list
+
+include ../../assets/articles/main-page-article/main-page-article
+
+append variables
+  -
+    var PageHead = {
+      title : 'Каталог свадебных платьев - цены на свадебные платья',
+      keywords : 'каталог свадебных платьев, цены на свадебные платья',
+      description : 'Каталог свадебных платьев Все Невестам',
+    }
+    var dressesList = [
+      {imagePath: './images/catalog/fluffy.jpg', href: '', titleInMiddle: 'Пышные свадебные платья'},
+    ]
+
+append content
+  +dress-cards-list(dressesList)

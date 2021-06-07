@@ -92,6 +92,15 @@ module.exports = {
         collapseWhitespace: isProd 
       }
     }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/all-dresses.pug',
+      filename: 'all-dresses.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
     // new HTMLWebpackPlugin( {
     //   template: './pages/2/indexnot.pug',
     //   filename: 'indexnot.html',
