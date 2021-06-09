@@ -1,3 +1,18 @@
+function makeFileList(){
+  let fileList = new Set();
+  fs.readdirSync('./src/assets/images/dresses/').forEach(file => {
+    if ( file.includes('.') ) {
+      fileList.add(file);
+    } else {
+      fs.readdirSync(`./src/assets/images/dresses/${file}/`).forEach(file2 => {
+        fileList.add(`${file}/${file2}`);
+      });
+    }
+  });
+  console.log(fileList);
+}
+
+const fs = require('fs');
 const path = require('path')
 const webpack = require('webpack')
 const ASSET_PATH = process.env.ASSET_PATH || '';
@@ -10,7 +25,9 @@ const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
+
 console.log ("iS DEV ", isDev)
+makeFileList();
 
 const optimization = () => {
   const config = {
