@@ -1,15 +1,14 @@
 function makeFileList(){
-  let fileList = new Set();
-  fs.readdirSync('./src/assets/images/dresses/').forEach(file => {
-    if ( file.includes('.') ) {
-      fileList.add(file);
-    } else {
-      fs.readdirSync(`./src/assets/images/dresses/${file}/`).forEach(file2 => {
-        fileList.add(`${file}/${file2}`);
-      });
-    }
+  let fileList = {};
+  fs.readdirSync('./src/assets/images/dresses/').forEach(dir => {
+    fileList[dir] = [];
+    fs.readdirSync(`./src/assets/images/dresses/${dir}/`).forEach(file => {
+      fileList[dir].push(file);
+    });
   });
-  console.log(fileList);
+  console.log(JSON.stringify(fileList));
+  fs.writeFileSync('./src/assets/images/wholeList.json',JSON.stringify(fileList));
+
 }
 
 const fs = require('fs');
