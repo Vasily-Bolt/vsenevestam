@@ -7,7 +7,13 @@ function makeFileList(){
     });
   });
   console.log(JSON.stringify(fileList));
-  fs.writeFileSync('./src/assets/images/wholeList.json',JSON.stringify(fileList));
+  pugFileCode = `mixin renderDressCatalog
+  - 
+    var dressesList = [
+      {imagePath: './images/dresses/${Object.keys(fileList)[0]}/1.JPG', href: '', titleInMiddle: 'Пышные свадебные платья'},
+    ]
+  +dress-cards-list(dressesList)`;
+  fs.writeFileSync('./src/pages/catalog/dresses-list.pug',pugFileCode);
 
 }
 
