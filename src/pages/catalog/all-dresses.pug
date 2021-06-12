@@ -4,7 +4,7 @@ include ../../assets/blocks/dress-card/dress-card
 include ../../assets/blocks/dress-cards-list/dress-cards-list
 
 include ../../assets/articles/main-page-article/main-page-article
-include ./dresses-list
+
 
 append variables
   -
@@ -13,12 +13,14 @@ append variables
       keywords : 'каталог свадебных платьев, цены на свадебные платья',
       description : 'Каталог свадебных платьев Все Невестам',
     }
-    //Используй FS для чтения каталогов и записи имен файлов в dressesList
-    //- var dressesList = [
-    //-   {imagePath: './images/catalog/fluffy.jpg', href: '', titleInMiddle: 'Пышные свадебные платья'},
-    //- ]
-
+  include ./dresses-list
+    //если убрать эту строку то нихера не работает получение переменных из dresses-list
 
 append content
-  +renderDressCatalog
-  //- +dress-cards-list(dressesList)
+  - var drs = dressesList
+  each dress,index in dressesList
+    - 
+      drs[index].imagePath = `${drs[index].imagePath}/${drs[index].imageNames[0]}`
+      drs[index].underText = [drs[index].additionalInfo.price, `Размеры в наличии: ${drs[index].additionalInfo.size}`]
+  //- +dress-cards-list(allDressesList)
+  +dress-cards-list(drs,bottom=true)

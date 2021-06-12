@@ -1,23 +1,5 @@
-function makeFileList(){
-  let fileList = {};
-  fs.readdirSync('./src/assets/images/dresses/').forEach(dir => {
-    fileList[dir] = [];
-    fs.readdirSync(`./src/assets/images/dresses/${dir}/`).forEach(file => {
-      fileList[dir].push(file);
-    });
-  });
-  console.log(JSON.stringify(fileList));
-  pugFileCode = `mixin renderDressCatalog
-  - 
-    var dressesList = [
-      {imagePath: './images/dresses/${Object.keys(fileList)[0]}/1.JPG', href: '', titleInMiddle: 'Пышные свадебные платья'},
-    ]
-  +dress-cards-list(dressesList)`;
-  fs.writeFileSync('./src/pages/catalog/dresses-list.pug',pugFileCode);
+const DressListMaker = require('./webpack.dressList.js');
 
-}
-
-const fs = require('fs');
 const path = require('path')
 const webpack = require('webpack')
 const ASSET_PATH = process.env.ASSET_PATH || '';
@@ -32,7 +14,7 @@ const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
 
 console.log ("iS DEV ", isDev)
-makeFileList();
+DressListMaker.makeFileList();
 
 const optimization = () => {
   const config = {
