@@ -16,8 +16,11 @@ function checkJsonPropertyNames(fileToCheck){
   const keysToCheckPropExists = Object.keys(infoToCheck);
   console.log(keysToCheckPropExists);
   jsonObjectProperties.forEach( key => {
+    console.log( infoToCheck[key] );
     if ( !keysToCheckPropExists.includes(key) ) {
       const PropertyToAdd = readlineSync.question(`${key} отсутсвует в файле описания платья ${fileToCheck}. Что добавить?:`);
+      infoToCheck[key] = PropertyToAdd;
+      console.log( infoToCheck[key] );
       // infoToCheck.key = ''
     }
   });
