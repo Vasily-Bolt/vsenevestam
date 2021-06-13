@@ -123,6 +123,9 @@ module.exports = {
         },{
           from: path.resolve(__dirname, 'src/assets/images/'),
           to: path.resolve(__dirname, 'dist/images/')
+        },{
+          from: path.resolve(__dirname, 'src/assets/catalog/'),
+          to: path.resolve(__dirname, 'dist/catalog/')
         },
     ]}),
     new webpack.ProvidePlugin({

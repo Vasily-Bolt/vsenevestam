@@ -1,5 +1,5 @@
+const readlineSync = require('readline-sync');
 const fs = require('fs');
-
 
 const extensionsAreImages = ['jpg','JPG'];
 const jsonObjectProperties = ['price','size','additional','dressName','typeOfDress'];
@@ -17,12 +17,14 @@ function checkJsonPropertyNames(fileToCheck){
   console.log(keysToCheckPropExists);
   jsonObjectProperties.forEach( key => {
     if ( !keysToCheckPropExists.includes(key) ) {
+      const PropertyToAdd = readlineSync.question(`${key} отсутсвует в файле описания платья ${fileToCheck}. Что добавить?:`);
+      // infoToCheck.key = ''
     }
   });
   return JSON.stringify(infoToCheck);
 }
 
-let makeFileList = function makeFileList(){
+function makeFileList(){
   // //Начало создания json для обработки через JS
   // let fileList = {};
   // fs.readdirSync('./src/assets/catalog/dresses/').forEach(dir => {
@@ -67,4 +69,5 @@ let makeFileList = function makeFileList(){
   //Конец
 }
 
-exports.makeFileList = makeFileList;
+
+makeFileList();
