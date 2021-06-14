@@ -1,8 +1,28 @@
+const readline = require('readline');
 const readlineSync = require('readline-sync');
 const fs = require('fs');
 
 const extensionsAreImages = ['jpg','JPG'];
 const jsonObjectProperties = ['price','size','additional','dressName','typeOfDress'];
+
+const question = question => {
+  const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+  });
+
+  return new Promise(resolve => {
+      rl.question(question, answer => {
+          rl.close();
+          return resolve(answer);
+      });
+  });
+};
+
+async function getPropertyToAdd() {
+  const answer = await question(`отсутсвует в файле описания платья . Что добавить?:`);
+  console.log(answer);
+}
 
 class dressInfoObject {
   constructor() {
@@ -11,16 +31,18 @@ class dressInfoObject {
   }
 }
 
-function checkJsonPropertyNames(fileToCheck){
+async function checkJsonPropertyNames(fileToCheck){
   const infoToCheck = JSON.parse(`${fs.readFileSync(fileToCheck)}`);
   const keysToCheckPropExists = Object.keys(infoToCheck);
   console.log(keysToCheckPropExists);
-  jsonObjectProperties.forEach( key => {
+  for (let key of jsonObjectProperties){
     if ( !keysToCheckPropExists.includes(key) ) {
-      const PropertyToAdd = readlineSync.question(`${key} отсутсвует в файле описания платья ${fileToCheck}. Что добавить?:`);
-      // infoToCheck.key = ''
+      const PropertyToAdd = getPropertyToAdd();
+      // const PropertyToAdd = getPropertyToAdd().catch(console.error);
+      // const PropertyToAdd = readlineSync.question(`${key} отсутсвует в файле описания платья ${fileToCheck}. Что добавить?:`);
+      console.log( PropertyToAdd );
     }
-  });
+  }
   return JSON.stringify(infoToCheck);
 }
 
