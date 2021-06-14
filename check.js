@@ -41,6 +41,7 @@ async function checkJsonPropertyNames(fileToCheck){
       // const PropertyToAdd = getPropertyToAdd().catch(console.error);
       // const PropertyToAdd = readlineSync.question(`${key} отсутсвует в файле описания платья ${fileToCheck}. Что добавить?:`);
       console.log( PropertyToAdd );
+
     }
   }
   return JSON.stringify(infoToCheck);
