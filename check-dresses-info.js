@@ -29,22 +29,31 @@ async function makeFileList(){
     const jsonFilePath = `./src/assets/${iamgesPath}/about.json`;
     let jsonContent = JSON.parse(`${fs.readFileSync(jsonFilePath)}`);
     const keysToCheckPropExists = Object.keys(jsonContent);
-
-    console.log(catalogPaths[pathElementKey]);
-    console.log(keysToCheckPropExists);
+    let isDifferent = false;
+    console.log(`Папка ${catalogPaths[pathElementKey]}. В файле ключи - ${keysToCheckPropExists}
+Содержимое `);
     console.log(jsonContent);
 
     for (let key of jsonObjectProperties){
-      if ( !keysToCheckPropExists.includes(key) ) {
-        let questionText = `отсутсвует ${key} в файле описания платья. `;
+      if ( !keysToCheckPropExists.includes(key) || jsonContent[key] == '' ) {
+        let questionText = `отсутсвует ${key} в файле описания платья в папке ${catalogPaths[pathElementKey]}. `;
         if (key == 'typeOfDress' ) questionText += `Перечислить через пробел (lush,greece,lace,straight,mermaid,materity,sleeves,train,cheap) `;
         let missingProperty = await question(`${questionText}Что добавить?:`);
-        console.log( missingProperty );
+        // console.log( missingProperty );
         jsonContent[key] = missingProperty;
-        console.log(jsonContent);
+        // console.log(jsonContent);
+        isDifferent = true;
       }
     }
-
+    if ( isDifferent ) {
+      console.log('Вношу изменения в файл');
+      fs.writeFile(jsonFilePath, JSON.stringify(jsonContent), (error) => {
+        if (error) throw error;
+      })
+    } else {
+      console.log('Изменения файла не нужны');
+    }
+    console.log('');
     fileListCode += `{
         imagePath: './${iamgesPath}',
         imageNames:[`;
