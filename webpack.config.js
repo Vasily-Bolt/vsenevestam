@@ -1,4 +1,3 @@
-const DressListMaker = require('./webpack.dressList.js');
 
 const path = require('path')
 const webpack = require('webpack')
@@ -14,7 +13,6 @@ const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
 
 console.log ("iS DEV ", isDev)
-DressListMaker.makeFileList();
 
 const optimization = () => {
   const config = {
