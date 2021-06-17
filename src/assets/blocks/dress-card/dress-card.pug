@@ -1,10 +1,4 @@
-mixin dressCard(dressCard,bottom,top,left,right)
-  - var dressCardClasses = `dress-card `;
-  - if ( bottom ) dressCardClasses += `dress-card--bottom-space `;
-  - if ( top ) dressCardClasses += `dress-card--top-space `;
-  - if ( left ) dressCardClasses += `dress-card--left-space `;
-  - if ( right ) dressCardClasses += `dress-card--right-space `;
-  //ЧТОБЫ ССЫЛКА СОЗДАВАЛАСЬ НА ВСЁ, а не только на картинку!!!
+mixin dressCard(dressCard)
   mixin cardAndText 
     img.dress-card__img(src=dressCard.imagePath)
     
@@ -18,7 +12,7 @@ mixin dressCard(dressCard,bottom,top,left,right)
       each text in dressCard.underText
         p.dress-card__dress-sign.dress-card__dress-sign--centered= text
   
-  div(class= dressCardClasses)
+  .dress-card
     if ( dressCard.href )
       a(href=dressCard.href)
         +cardAndText

@@ -1,10 +1,12 @@
 mixin dress-cards-list(dressList,bottom,top,left,right)
+  - 
+    var dressCardListClass = 'dress-cards-list__card-container '
+    if ( bottom ) dressCardListClass += 'dress-cards-list--margin-bottom '
+    if ( top ) dressCardListClass += 'dress-cards-list--margin-top '
+    if ( left ) dressCardListClass += 'dress-cards-list--margin-left '
+    if ( right ) dressCardListClass += 'dress-cards-list--margin-right '
+
   .dress-cards-list
     each dress,index in dressList
-      .dress-cards-list__card-container
-        if index == 0
-          +dressCard(dress,bottom,left,right)
-        else if index == dressList.length-1
-          +dressCard(dress,top,left,right)
-        else
-          +dressCard(dress,bottom,top,left,right)
+      div(class = dressCardListClass)
+        +dressCard(dress)
