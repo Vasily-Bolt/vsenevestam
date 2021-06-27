@@ -103,6 +103,96 @@ module.exports = {
         collapseWhitespace: isProd 
       }
     }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/lush-dresses.pug',
+      filename: 'lush-dresses.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/cheap-dresses.pug',
+      filename: 'all-dresses.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/greece-dresses.pug',
+      filename: 'all-dresses.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/lace-dresses.pug',
+      filename: 'all-dresses.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/lush-dresses.pug',
+      filename: 'all-dresses.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/materity-dresses.pug',
+      filename: 'all-dresses.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/mermaid-dresses.pug',
+      filename: 'all-dresses.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/sleeves-dresses.pug',
+      filename: 'all-dresses.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/straight-dresses.pug',
+      filename: 'all-dresses.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/train-dresses.pug',
+      filename: 'all-dresses.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
     // new HTMLWebpackPlugin( {
     //   template: './pages/2/indexnot.pug',
     //   filename: 'indexnot.html',

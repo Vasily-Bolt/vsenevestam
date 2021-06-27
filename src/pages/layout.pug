@@ -13,34 +13,34 @@ block variables
     var menuList = [
           {
             name : 'Пышные',
-            href : '',
+            href : './lush-dresses.html',
           },{
             name : 'Греческие',
-            href : '',
+            href : './greece-dresses.html',
           },{
             name : 'Кружевные',
-            href : '',
+            href : './lace-dresses.html',
           },{
             name : 'Прямые',
-            href : '',
+            href : './straight-dresses.html',
           },{
             name : 'Русалка',
-            href : '',
+            href : './mermaid-dresses.html',
           },{
             name : 'Беременным',
-            href : '',
+            href : './materity-dresses.html',
           },{
             name : 'С рукавами',
-            href : '',
+            href : './sleeves-dresses.html',
           },{
             name : 'Со шлейфом',
-            href : '',
+            href : './train-dresses.html',
           },{
             name : 'До 15000',
-            href : '',
+            href : './cheap-dresses.html',
           },{
             name : 'Контакты',
-            href : '',
+            href : './contacts.html',
           },
         ]
       var topLogoAndInfo = {
@@ -72,7 +72,8 @@ html
         block header
           .page-head
             +top-sign(topLogoAndInfo)
-            +showMainMenu(menuList)
+      .layout-main-menu
+        +showMainMenu(menuList)
       .layout-content
         block content
       .layout-foot

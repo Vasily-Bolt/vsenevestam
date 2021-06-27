@@ -1,0 +1,27 @@
+$menu-show-aside : $desktop-max
+
+.layout-wrapper
+  display: grid
+  grid-column-gap: .2em
+  grid-template: "header header header" "main-menu main-menu main-menu" "content content content" "footer footer footer"
+
+@media screen and (min-width: $menu-show-aside)
+  .layout-wrapper
+    grid-template: "header header header" "main-menu content content" "footer footer footer" / 1.5fr 2fr 2fr
+
+.layout-header
+  grid-area: header
+
+.layout-main-menu
+  grid-area: main-menu
+
+@media screen and (min-width: $menu-show-aside)
+  .layout-main-menu
+    background-color: rgba(196,196,196,0.9)
+    font-size: 1.5rem
+    
+.layout-content
+  grid-area: content
+
+.layout-foot
+  grid-area: footer

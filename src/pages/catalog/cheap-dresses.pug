@@ -1,0 +1,31 @@
+//- page.pug
+extends ../layout.pug
+include ./catalog-includes.pug
+
+append variables
+  -
+    var PageHead = {
+      title : 'Купить пышное свадебное платье',
+      keywords : 'каталог пышных свадебных платьев, цены на пышные свадебные платья',
+      description : 'Каталог пышных свадебных платьев Все Невестам',
+    }
+  include ./dresses-list
+    //если убрать эту пустую строку то нихера не работает получение переменных из dresses-list
+
+append content
+  - 
+    var drs = dressesList
+    var deleteIndexes = []
+  each dress,index in dressesList
+    - 
+      if ( drs[index].additionalInfo.typeOfDress.includes('cheap') ) {
+        drs[index].imagePath = `${drs[index].imagePath}/${drs[index].imageNames[0]}`
+        drs[index].underText = [drs[index].additionalInfo.price, `Размеры в наличии: ${drs[index].additionalInfo.size}`]
+        drs[index].titleUnder = drs[index].additionalInfo.dressName
+      } else {
+        deleteIndexes.push(index);
+      }
+  - deleteIndexes.reverse()
+  each index in deleteIndexes
+    - drs.splice(index,1)
+  +dress-cards-list(drs,true)

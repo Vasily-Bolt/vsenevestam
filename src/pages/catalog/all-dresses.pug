@@ -1,10 +1,6 @@
 //- page.pug
 extends ../layout.pug
-include ../../assets/blocks/dress-card/dress-card
-include ../../assets/blocks/dress-cards-list/dress-cards-list
-
-include ../../assets/articles/main-page-article/main-page-article
-
+include ./catalog-includes.pug
 
 append variables
   -
@@ -14,7 +10,7 @@ append variables
       description : 'Каталог свадебных платьев Все Невестам',
     }
   include ./dresses-list
-    //если убрать эту строку то нихера не работает получение переменных из dresses-list
+    //если убрать эту пустую строку то нихера не работает получение переменных из dresses-list
 
 append content
   - var drs = dressesList
