@@ -114,7 +114,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin( {
       template: './pages/catalog/cheap-dresses.pug',
-      filename: 'all-dresses.html',
+      filename: 'cheap-dresses.html',
       inject: true,
       chunks: ['main'],
       minify: {
@@ -123,7 +123,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin( {
       template: './pages/catalog/greece-dresses.pug',
-      filename: 'all-dresses.html',
+      filename: 'greece-dresses.html',
       inject: true,
       chunks: ['main'],
       minify: {
@@ -132,7 +132,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin( {
       template: './pages/catalog/lace-dresses.pug',
-      filename: 'all-dresses.html',
+      filename: 'lace-dresses.html',
       inject: true,
       chunks: ['main'],
       minify: {
@@ -141,7 +141,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin( {
       template: './pages/catalog/lush-dresses.pug',
-      filename: 'all-dresses.html',
+      filename: 'lush-dresses.html',
       inject: true,
       chunks: ['main'],
       minify: {
@@ -150,7 +150,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin( {
       template: './pages/catalog/materity-dresses.pug',
-      filename: 'all-dresses.html',
+      filename: 'materity-dresses.html',
       inject: true,
       chunks: ['main'],
       minify: {
@@ -159,7 +159,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin( {
       template: './pages/catalog/mermaid-dresses.pug',
-      filename: 'all-dresses.html',
+      filename: 'mermaid-dresses.html',
       inject: true,
       chunks: ['main'],
       minify: {
@@ -168,7 +168,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin( {
       template: './pages/catalog/sleeves-dresses.pug',
-      filename: 'all-dresses.html',
+      filename: 'sleeves-dresses.html',
       inject: true,
       chunks: ['main'],
       minify: {
@@ -177,7 +177,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin( {
       template: './pages/catalog/straight-dresses.pug',
-      filename: 'all-dresses.html',
+      filename: 'straight-dresses.html',
       inject: true,
       chunks: ['main'],
       minify: {
@@ -186,7 +186,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin( {
       template: './pages/catalog/train-dresses.pug',
-      filename: 'all-dresses.html',
+      filename: 'train-dresses.html',
       inject: true,
       chunks: ['main'],
       minify: {
