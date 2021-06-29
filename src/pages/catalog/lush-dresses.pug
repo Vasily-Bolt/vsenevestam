@@ -2,6 +2,8 @@
 extends ../layout.pug
 include ./catalog-includes.pug
 
+include ../../assets/articles/lush-dresses-article/lush-dresses-article
+
 append variables
   -
     var PageHead = {
@@ -29,3 +31,4 @@ append content
   each index in deleteIndexes
     - drs.splice(index,1)
   +dress-cards-list(drs,true)
+  +lush-dresses-article

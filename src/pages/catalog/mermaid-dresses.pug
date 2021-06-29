@@ -2,11 +2,13 @@
 extends ../layout.pug
 include ./catalog-includes.pug
 
+include ../../assets/articles/mermaid-dresses-article/mermaid-dresses-article
+
 append variables
   -
     var PageHead = {
-      title : 'Купить пышное свадебное платье',
-      keywords : 'каталог пышных свадебных платьев, цены на пышные свадебные платья',
+      title : 'Купить свадебное платье русалка',
+      keywords : 'каталог свадебных платьев русалка, цены на свадебные платья в стиле рыбка',
       description : 'Каталог пышных свадебных платьев Все Невестам',
     }
   include ./dresses-list
@@ -29,3 +31,4 @@ append content
   each index in deleteIndexes
     - drs.splice(index,1)
   +dress-cards-list(drs,true)
+  +mermaid-dresses-article

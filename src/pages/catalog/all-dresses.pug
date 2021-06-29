@@ -2,6 +2,8 @@
 extends ../layout.pug
 include ./catalog-includes.pug
 
+include ../../assets/articles/all-dresses-article/all-dresses-article
+
 append variables
   -
     var PageHead = {
@@ -20,3 +22,4 @@ append content
       drs[index].underText = [drs[index].additionalInfo.price, `Размеры в наличии: ${drs[index].additionalInfo.size}`]
       drs[index].titleUnder = drs[index].additionalInfo.dressName
   +dress-cards-list(drs,true)
+  +all-dresses-article

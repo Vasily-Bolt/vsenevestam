@@ -2,12 +2,14 @@
 extends ../layout.pug
 include ./catalog-includes.pug
 
+include ../../assets/articles/greece-dresses-article/greece-dresses-article
+
 append variables
   -
     var PageHead = {
-      title : 'Купить пышное свадебное платье',
-      keywords : 'каталог пышных свадебных платьев, цены на пышные свадебные платья',
-      description : 'Каталог пышных свадебных платьев Все Невестам',
+      title : 'Купить греческое свадебное платье',
+      keywords : 'каталог греческих свадебных платьев, цены на греческие свадебные платья',
+      description : 'Каталог греческих свадебных платьев Все Невестам',
     }
   include ./dresses-list
     //если убрать эту пустую строку то нихера не работает получение переменных из dresses-list
@@ -29,3 +31,4 @@ append content
   each index in deleteIndexes
     - drs.splice(index,1)
   +dress-cards-list(drs,true)
+  +greece-dresses-article
