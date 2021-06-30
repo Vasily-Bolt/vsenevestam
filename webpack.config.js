@@ -193,6 +193,15 @@ module.exports = {
         collapseWhitespace: isProd 
       }
     }),
+    new HTMLWebpackPlugin( {
+      template: './pages/catalog/discount.pug',
+      filename: 'discount.html',
+      inject: true,
+      chunks: ['main'],
+      minify: {
+        collapseWhitespace: isProd 
+      }
+    }),
     // new HTMLWebpackPlugin( {
     //   template: './pages/2/indexnot.pug',
     //   filename: 'indexnot.html',
