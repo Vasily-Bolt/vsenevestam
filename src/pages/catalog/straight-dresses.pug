@@ -21,7 +21,7 @@ append content
   each dress,index in dressesList
     - 
       if ( drs[index].additionalInfo.typeOfDress.includes('straight') ) {
-        drs[index].imagePath = `${drs[index].imagePath}/${drs[index].imageNames[0]}`
+        drs[index].imageName = drs[index].imageNames[0]
         drs[index].underText = [drs[index].additionalInfo.price, `Размеры в наличии: ${drs[index].additionalInfo.size}`]
         drs[index].titleUnder = drs[index].additionalInfo.dressName
       } else {

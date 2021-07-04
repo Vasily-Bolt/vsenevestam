@@ -25,8 +25,8 @@ async function makeFileList(){
   //Перебор всех папок из dresses, собранных в fileList
   catalogPaths = fs.readdirSync('./src/assets/catalog/dresses/');
   for ( let pathElementKey in catalogPaths ){
-    const iamgesPath = `catalog/dresses/${catalogPaths[pathElementKey]}`;
-    const jsonFilePath = `./src/assets/${iamgesPath}/about.json`;
+    const imagesPath = `catalog/dresses/${catalogPaths[pathElementKey]}`;
+    const jsonFilePath = `./src/assets/${imagesPath}/about.json`;
     let jsonContent = JSON.parse(`${fs.readFileSync(jsonFilePath)}`);
     const keysToCheckPropExists = Object.keys(jsonContent);
     let isDifferent = false;
@@ -55,7 +55,7 @@ async function makeFileList(){
     }
     console.log('');
     fileListCode += `{
-        imagePath: './${iamgesPath}',
+        imagePath: './${imagesPath}',
         imageNames:[`;
     //Перебор подпапки с картинками
     fs.readdirSync(`./src/assets/catalog/dresses/${catalogPaths[pathElementKey]}/`).forEach( fileElement => {

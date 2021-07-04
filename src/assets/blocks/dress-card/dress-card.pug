@@ -1,6 +1,11 @@
 mixin dressCard(dressCard)
-  mixin cardAndText 
-    img.dress-card__img(src=dressCard.imagePath)
+  mixin cardAndText
+    picture
+      source(media='(max-width: 321px)' srcset=`${dressCard.imagePath}/s/${dressCard.imageName}`)
+      source(media='(max-width: 376px)' srcset=`${dressCard.imagePath}/m/${dressCard.imageName}`)
+      source(media='(max-width: 425px)' srcset=`${dressCard.imagePath}/l/${dressCard.imageName}`)
+
+      img.dress-card__img(src=`${dressCard.imagePath}/${dressCard.imageName}`)
     
     if ( dressCard.titleInMiddle )
       h4.dress-card__dress-sign.dress-card__dress-sign--on-image.dress-card__dress-sign--centered.dress-card__dress-sign--grey= dressCard.titleInMiddle
