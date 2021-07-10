@@ -1,0 +1,4 @@
+$(()=> {
+  const signupBlock = $('#sign-up');
+
+})
