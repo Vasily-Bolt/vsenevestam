@@ -75,5 +75,25 @@ async function makeFileList(){
   //Конец
 }
 
+function getNamesList(){
+  const list = `${fs.readFileSync('dresses-names.txt')}`.split(',');
+  return list;
+}
 
-makeFileList();
+function makeNamesListFile(){
+  let usedNames = '';
+  const catalogPaths = fs.readdirSync('./src/assets/catalog/dresses/');
+  for ( let pathElementKey in catalogPaths ){
+    const imagesPath = `catalog/dresses/${catalogPaths[pathElementKey]}`;
+    const jsonFilePath = `./src/assets/${imagesPath}/about.json`;
+    let jsonContentDressName = JSON.parse(`${fs.readFileSync(jsonFilePath)}`).dressName;
+    if ( jsonContentDressName != '' ) usedNames += `${jsonContentDressName},`;
+  }
+  fs.writeFileSync('used-dresses-names.txt', usedNames);
+  console.log( usedNames );
+}
+
+makeNamesListFile();
+
+console.log( getNamesList() );
+// makeFileList();
