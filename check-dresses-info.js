@@ -3,6 +3,8 @@ const fs = require('fs');
 
 const extensionsAreImages = ['jpg','JPG','png','PNG'];
 const jsonObjectProperties = ['price','size','additional','dressName','typeOfDress'];
+const jsonFileEmptyContent = new Object;
+const dressesCatalogMainDir = './src/assets/catalog/dresses/';
 
 const question = question => {
   const rl = readline.createInterface({
@@ -18,16 +20,46 @@ const question = question => {
   });
 };
 
-async function makeFileList(){
 
+function getNamesList(){
+  const list = `${fs.readFileSync('dresses-names.txt')}`.split(',');
+  return new Set(list);
+}
+
+function makeNamesListFile(dirFsObject){
+  let usedNames = new Array;
+  for ( let pathElementKey in dirFsObject ){
+    const imagesPath = `catalog/dresses/${dirFsObject[pathElementKey]}`;
+    const jsonFilePath = `./src/assets/${imagesPath}/about.json`;
+    const jsonContentDressName = fs.existsSync(jsonFilePath) ? JSON.parse(`${fs.readFileSync(jsonFilePath)}`).dressName : '';
+    if ( jsonContentDressName != '' ) usedNames.push( jsonContentDressName );
+  }
+  return usedNames;
+}
+
+function namesNotUsedBefore(allNames, usedNames){
+  let _newAllNames = new Set(allNames);
+  usedNames.forEach ( (name) => {
+    _newAllNames.delete(name);
+  } );
+  return _newAllNames;
+}
+
+async function makeFileList(){
+  const catalogPaths = fs.readdirSync(dressesCatalogMainDir);
+  const usedNames = makeNamesListFile(catalogPaths);
+  const allPossibleNames = getNamesList();
+  const notUsed = namesNotUsedBefore(allPossibleNames, usedNames);
+  console.log(notUsed);
   //Начало создания pug файла с объектом данных о платьях
   let fileListCode = ``;
   //Перебор всех папок из dresses, собранных в fileList
-  const catalogPaths = fs.readdirSync('./src/assets/catalog/dresses/');
+  
   for ( let pathElementKey in catalogPaths ){
     const imagesPath = `catalog/dresses/${catalogPaths[pathElementKey]}`;
     const jsonFilePath = `./src/assets/${imagesPath}/about.json`;
-    let jsonContent = JSON.parse(`${fs.readFileSync(jsonFilePath)}`);
+    //Проверка наличия JSONа
+    const jsonContent = fs.existsSync(jsonFilePath) ? JSON.parse(`${fs.readFileSync(jsonFilePath)}`) : jsonFileEmptyContent;
     const keysToCheckPropExists = Object.keys(jsonContent);
     let isDifferent = false;
     console.log(`Папка ${catalogPaths[pathElementKey]}. В файле ключи - ${keysToCheckPropExists}
@@ -58,7 +90,7 @@ async function makeFileList(){
         imagePath: './${imagesPath}',
         imageNames:[`;
     //Перебор подпапки с картинками
-    fs.readdirSync(`./src/assets/catalog/dresses/${catalogPaths[pathElementKey]}/`).forEach( fileElement => {
+    fs.readdirSync(`${dressesCatalogMainDir}${catalogPaths[pathElementKey]}/`).forEach( fileElement => {
       const fileNameExtension = fileElement.split('.')[fileElement.split('.').length-1];
       if ( extensionsAreImages.includes(fileNameExtension) ) fileListCode += `'${fileElement}',`;
     });
@@ -75,25 +107,4 @@ async function makeFileList(){
   //Конец
 }
 
-function getNamesList(){
-  const list = `${fs.readFileSync('dresses-names.txt')}`.split(',');
-  return list;
-}
-
-function makeNamesListFile(){
-  let usedNames = '';
-  const catalogPaths = fs.readdirSync('./src/assets/catalog/dresses/');
-  for ( let pathElementKey in catalogPaths ){
-    const imagesPath = `catalog/dresses/${catalogPaths[pathElementKey]}`;
-    const jsonFilePath = `./src/assets/${imagesPath}/about.json`;
-    let jsonContentDressName = JSON.parse(`${fs.readFileSync(jsonFilePath)}`).dressName;
-    if ( jsonContentDressName != '' ) usedNames += `${jsonContentDressName},`;
-  }
-  fs.writeFileSync('used-dresses-names.txt', usedNames);
-  console.log( usedNames );
-}
-
-makeNamesListFile();
-
-console.log( getNamesList() );
-// makeFileList();
+makeFileList();
