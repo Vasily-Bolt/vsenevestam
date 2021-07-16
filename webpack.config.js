@@ -50,6 +50,22 @@ const cssLoaders = extra => {
   return loaders
 }
 
+const pugFilesToConvert = require('./website-pug-file-list.js');
+let multipleHtmlPlugins = pugFilesToConvert.map(filePath => {
+  const name = filePath.slice(filePath.lastIndexOf('/')+1,filePath.lastIndexOf('.'));
+  console.log( `Will be added to HTMLWebpackPlugin - ${name}`);
+  return new HTMLWebpackPlugin({
+    template: filePath,
+    filename: `${name}.html`,
+    inject: true,
+    chunks: [`main`],
+    minify: {
+      collapseWhitespace: isProd 
+    }
+  })
+});
+// console.log(multipleHtmlPlugins);
+
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
@@ -85,117 +101,126 @@ module.exports = {
         collapseWhitespace: isProd 
       }
     }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/catalog.pug',
+    //   filename: 'catalog.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/all-dresses.pug',
+    //   filename: 'all-dresses.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/lush-dresses.pug',
+    //   filename: 'lush-dresses.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/cheap-dresses.pug',
+    //   filename: 'cheap-dresses.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/greece-dresses.pug',
+    //   filename: 'greece-dresses.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/lace-dresses.pug',
+    //   filename: 'lace-dresses.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/lush-dresses.pug',
+    //   filename: 'lush-dresses.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/materity-dresses.pug',
+    //   filename: 'materity-dresses.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/mermaid-dresses.pug',
+    //   filename: 'mermaid-dresses.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/sleeves-dresses.pug',
+    //   filename: 'sleeves-dresses.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/straight-dresses.pug',
+    //   filename: 'straight-dresses.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/train-dresses.pug',
+    //   filename: 'train-dresses.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/catalog/discount.pug',
+    //   filename: 'discount.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
     new HTMLWebpackPlugin( {
-      template: './pages/catalog/catalog.pug',
-      filename: 'catalog.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/all-dresses.pug',
-      filename: 'all-dresses.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/lush-dresses.pug',
-      filename: 'lush-dresses.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/cheap-dresses.pug',
-      filename: 'cheap-dresses.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/greece-dresses.pug',
-      filename: 'greece-dresses.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/lace-dresses.pug',
-      filename: 'lace-dresses.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/lush-dresses.pug',
-      filename: 'lush-dresses.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/materity-dresses.pug',
-      filename: 'materity-dresses.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/mermaid-dresses.pug',
-      filename: 'mermaid-dresses.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/sleeves-dresses.pug',
-      filename: 'sleeves-dresses.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/straight-dresses.pug',
-      filename: 'straight-dresses.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/train-dresses.pug',
-      filename: 'train-dresses.html',
-      inject: true,
-      chunks: ['main'],
-      minify: {
-        collapseWhitespace: isProd 
-      }
-    }),
-    new HTMLWebpackPlugin( {
-      template: './pages/catalog/discount.pug',
-      filename: 'discount.html',
+      template: './pages/contacts/contacts.pug',
+      filename: 'contacts.html',
       inject: true,
       chunks: ['main'],
       minify: {
@@ -203,10 +228,10 @@ module.exports = {
       }
     }),
     // new HTMLWebpackPlugin( {
-    //   template: './pages/2/indexnot.pug',
-    //   filename: 'indexnot.html',
+    //   template: './pages/articles/wedding-trends-19-20.pug',
+    //   filename: 'wedding-trends-19-20.html',
     //   inject: true,
-    //   chunks: ['just'],
+    //   chunks: ['main'],
     //   minify: {
     //     collapseWhitespace: isProd 
     //   }
@@ -232,7 +257,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: filename('css')
     })
-  ],
+  ].concat(multipleHtmlPlugins),
   module: {
     rules: [
       {

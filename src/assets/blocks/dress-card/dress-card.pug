@@ -1,6 +1,6 @@
 mixin dressCard(dressCard)
   mixin cardAndText
-    picture
+    picture.dress-card__img
       source(media='(max-width: 321px)' srcset=`${dressCard.imagePath}/s/${dressCard.imageName}`)
       source(media='(max-width: 376px)' srcset=`${dressCard.imagePath}/m/${dressCard.imageName}`)
       //- source(media='(max-width: 425px)' srcset=`${dressCard.imagePath}/l/${dressCard.imageName}`)

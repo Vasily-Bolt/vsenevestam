@@ -26,7 +26,7 @@ function getNamesList(){
   return new Set(list);
 }
 
-function makeNamesListFile(dirFsObject){
+function makeUsedNamesListFile(dirFsObject){
   let usedNames = new Array;
   for ( let pathElementKey in dirFsObject ){
     const imagesPath = `catalog/dresses/${dirFsObject[pathElementKey]}`;
@@ -37,7 +37,7 @@ function makeNamesListFile(dirFsObject){
   return usedNames;
 }
 
-function namesNotUsedBefore(allNames, usedNames){
+function getNamesNotUsedBefore(allNames, usedNames){
   let _newAllNames = new Set(allNames);
   usedNames.forEach ( (name) => {
     _newAllNames.delete(name);
@@ -47,10 +47,8 @@ function namesNotUsedBefore(allNames, usedNames){
 
 async function makeFileList(){
   const catalogPaths = fs.readdirSync(dressesCatalogMainDir);
-  const usedNames = makeNamesListFile(catalogPaths);
-  const allPossibleNames = getNamesList();
-  const notUsed = namesNotUsedBefore(allPossibleNames, usedNames);
-  console.log(notUsed);
+  const namesNotUsed = getNamesNotUsedBefore(getNamesList(), makeUsedNamesListFile(catalogPaths));
+  console.log(namesNotUsed);
   //Начало создания pug файла с объектом данных о платьях
   let fileListCode = ``;
   //Перебор всех папок из dresses, собранных в fileList
@@ -65,12 +63,17 @@ async function makeFileList(){
     console.log(`Папка ${catalogPaths[pathElementKey]}. В файле ключи - ${keysToCheckPropExists}
 Содержимое `);
     console.log(jsonContent);
-
+  
     for (let key of jsonObjectProperties){
       if ( !keysToCheckPropExists.includes(key) || jsonContent[key] == '' ) {
+        let missingProperty = '';
         let questionText = `отсутсвует ${key} в файле описания платья в папке ${catalogPaths[pathElementKey]}. `;
         if (key == 'typeOfDress' ) questionText += `Перечислить через пробел (lush,greece,lace,straight,mermaid,materity,sleeves,train,cheap) `;
-        let missingProperty = await question(`${questionText}Что добавить?:`);
+        if (key == 'dressName') {
+          missingProperty = namesNotUsed.keys().next().value;
+          namesNotUsed.delete(missingProperty);
+          console.log(namesNotUsed);
+        } else missingProperty = await question(`${questionText}Что добавить?:`);
         // console.log( missingProperty );
         jsonContent[key] = missingProperty;
         // console.log(jsonContent);
