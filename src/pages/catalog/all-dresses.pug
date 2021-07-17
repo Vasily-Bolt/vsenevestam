@@ -19,7 +19,8 @@ append content
   each dress,index in dressesList
     - 
       drs[index].imageName = drs[index].imageNames[0]
-      drs[index].underText = [drs[index].additionalInfo.price, `Размеры в наличии: ${drs[index].additionalInfo.size}`]
+      //- drs[index].underText = [drs[index].additionalInfo.price, `Размеры в наличии: ${drs[index].additionalInfo.size}`]
+      drs[index].underText = drs[index].additionalInfo.price
       drs[index].titleUnder = drs[index].additionalInfo.dressName
   +dress-cards-list(drs,true)
   +all-dresses-article
