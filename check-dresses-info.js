@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const extensionsAreImages = ['jpg','JPG','png','PNG'];
 const jsonObjectProperties = ['price','size','additional','dressName','typeOfDress'];
-const jsonFileEmptyContent = new Object;
+// const jsonFileEmptyContent = new Object;
 const dressesCatalogMainDir = './src/assets/catalog/dresses/';
 
 const question = question => {
@@ -46,9 +46,8 @@ function getNamesNotUsedBefore(allNames, usedNames){
 }
 
 async function makeFileList(){
-  const catalogPaths = fs.readdirSync(dressesCatalogMainDir);
+  const catalogPaths = fs.readdirSync(dressesCatalogMainDir).reverse(); //Хоть и объект, а методы массива работают
   const namesNotUsed = getNamesNotUsedBefore(getNamesList(), makeUsedNamesListFile(catalogPaths));
-  console.log(namesNotUsed);
   //Начало создания pug файла с объектом данных о платьях
   let fileListCode = ``;
   //Перебор всех папок из dresses, собранных в fileList
@@ -57,7 +56,7 @@ async function makeFileList(){
     const imagesPath = `catalog/dresses/${catalogPaths[pathElementKey]}`;
     const jsonFilePath = `./src/assets/${imagesPath}/about.json`;
     //Проверка наличия JSONа
-    const jsonContent = fs.existsSync(jsonFilePath) ? JSON.parse(`${fs.readFileSync(jsonFilePath)}`) : jsonFileEmptyContent;
+    const jsonContent = fs.existsSync(jsonFilePath) ? JSON.parse(`${fs.readFileSync(jsonFilePath)}`) : new Object;
     const keysToCheckPropExists = Object.keys(jsonContent);
     let isDifferent = false;
     console.log(`Папка ${catalogPaths[pathElementKey]}. В файле ключи - ${keysToCheckPropExists}
@@ -72,7 +71,7 @@ async function makeFileList(){
         if (key == 'dressName') {
           missingProperty = namesNotUsed.keys().next().value;
           namesNotUsed.delete(missingProperty);
-          console.log(namesNotUsed);
+          // console.log(namesNotUsed);
         } else missingProperty = await question(`${questionText}Что добавить?:`);
         // console.log( missingProperty );
         jsonContent[key] = missingProperty;
