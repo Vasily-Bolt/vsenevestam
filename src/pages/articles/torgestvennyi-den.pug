@@ -1,0 +1,14 @@
+
+extends ../layout.pug
+include ../../assets/articles/torgestvennyi-den/torgestvennyi-den
+append variables
+  -
+    var PageHead = {
+      title : 'Ваш торжественный миг.',
+      keywords : 'Ваш торжественный миг.',
+      description : 'Ваш торжественный миг.',
+    }
+    
+append content
+  +torgestvennyi-den
+  

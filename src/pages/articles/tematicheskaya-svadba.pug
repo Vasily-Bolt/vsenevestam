@@ -1,0 +1,14 @@
+
+extends ../layout.pug
+include ../../assets/articles/tematicheskaya-svadba/tematicheskaya-svadba
+append variables
+  -
+    var PageHead = {
+      title : 'Тематическая свадьба',
+      keywords : 'Тематическая свадьба',
+      description : 'Тематическая свадьба',
+    }
+    
+append content
+  +tematicheskaya-svadba
+  
