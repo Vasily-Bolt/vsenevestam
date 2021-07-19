@@ -4,4 +4,4 @@ mixin showMainMenu(menuItems)
       ul.main-menu__parent-element
         each menuItem in menuItems
           li.main-menu__element 
-            a(href=menuItem.href)= menuItem.name
+            a.main-menu__element--grey-background-hover(href=menuItem.href)= menuItem.name
