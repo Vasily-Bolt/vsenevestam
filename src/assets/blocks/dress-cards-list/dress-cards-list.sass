@@ -1,24 +1,12 @@
 $toBigForOnePic : $laptop-min
 
-.dress-cards-list--margin-bottom
-  margin-bottom: .5em
+@import ./_margin-bottom/dress-cards-list_margin-bottom
+@import ./_margin-left/dress-cards-list_margin-left
+@import ./_margin-right/dress-cards-list_margin-right
+@import ./_margin-top/dress-cards-list_margin-top
+@import ./_margin-top/dress-cards-list_margin-top
+@import ./__card-container/dress-cards-list__card-container
 
-.dress-cards-list--margin-top
-  margin-top: .5em
-  
-.dress-cards-list--margin-left
-  margin-left: .5em
-  
-.dress-cards-list--margin-right
-  margin-right: .5em
-
-.dress-cards-list__card-container
-  flex: 1 1 auto
-
-@media screen and (min-width: $toBigForOnePic)
-  .dress-cards-list__card-container
-    flex: 1 1 400px
-  
 .dress-cards-list
   display: flex
   flex-wrap: wrap

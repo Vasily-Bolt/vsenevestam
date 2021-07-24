@@ -16,12 +16,13 @@ function GetHeaderFromFileContent(filePath){
   return content.substring(startPoint, endPoint);
 }
 
-let pugFileArticleContent = '';
-const articleMixinsList = getArticlesList(articlesMixinsDir, 'article');
-for (let articleName of articleMixinsList){
-  const HeaderOfArticle = GetHeaderFromFileContent(`${articlesMixinsDir}${articleName}/${articleName}.pug`);
-  console.log(HeaderOfArticle);
-  pugFileArticleContent += `
+function generateFiles(){
+  let pugFileArticleContent = '';
+  const articleMixinsList = getArticlesList(articlesMixinsDir, 'article');
+  for (let articleName of articleMixinsList){
+    const HeaderOfArticle = GetHeaderFromFileContent(`${articlesMixinsDir}${articleName}/${articleName}.pug`);
+    console.log(HeaderOfArticle);
+    pugFileArticleContent += `
 extends ../layout.pug
 include ../../assets/articles/${articleName}/${articleName}
 append variables
@@ -34,8 +35,18 @@ append variables
     
 append content
   +${articleName}
-  `;
-  fs.writeFileSync(`${readyarticlesFileDir}${articleName}.pug`,pugFileArticleContent);
-
-  pugFileArticleContent = '';
+    `;
+    fs.writeFileSync(`${readyarticlesFileDir}${articleName}.pug`,pugFileArticleContent);
+  
+    pugFileArticleContent = '';
+  }
 }
+
+const files = {
+  asd : 'asd',
+  fileGenerate : function() {
+    return readyarticlesFileDir;
+  }
+}
+
+module.exports = generateFiles();

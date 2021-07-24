@@ -1,16 +1,18 @@
 mixin top-sign(mainInfo)
   .top-sign
+    div.top-sign__logo-container
+      a(href="/")
+        img.top-sign__logo-image(src=mainInfo.logo)
     div
       span!= mainInfo.topText
-    div
+    div.top-sign__paragraph-margin
       img.top-sign__messengers(src='./images/everypage/phone.png')
       img.top-sign__messengers(src='./images/everypage/viber.png')
       img.top-sign__messengers(src='./images/everypage/whatsapp.png')
       span= mainInfo.phoneAndMessengers
-    a(href="/")
-      img.top-sign__logo(src=mainInfo.logo)
+
     div 
-      p.top-sign__bottom-paragraph Ежедневно с 10:00 до 20:00
-      p.top-sign__menu.top-sign__bottom-paragraph
+      p.top-sign__paragraph-margin Ежедневно с 10:00 до 20:00
+      p.top-sign__menu.top-sign__paragraph-margin
         a.top-sign__menu-item.top-sign__menu-item--grey-background-hover(href="./all-dresses.html") Свадебные платья
         a.top-sign__menu-item.top-sign__menu-item--grey-background-hover(href="./contacts.html") Контакты
