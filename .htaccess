@@ -91,20 +91,6 @@ RewriteRule ^dreses/discounts/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.r
 #RewriteRule ^jackets(.*)$ https://www.vse-nevestam.ru/accessories [R=301,L]
  
 
-RewriteRule ^prize.html?$ akcia.php [NC,L]
-RewriteRule ^search.html?$ searchres.php [NC,L]
-RewriteRule ^faq.html?$ faq.php [NC,L]
-RewriteRule ^howto.html?$ howto.php [NC,L]
-RewriteRule ^golosovanie.html?$ vote.php [NC,L]
-RewriteRule ^oformlenie_svadby.html?$ penopl.php [NC,L]
-RewriteRule ^contacts.html?$ cont.php [NC,L]
-RewriteRule ^statji?$ artchose.php [NC,L]
-RewriteRule ^feedback.html?$ feedback.php [NC,L]
-RewriteRule ^zapis.html?$ zapis.php [NC,L]
-RewriteRule ^sitemap.html?$ maposite.php [NC,L]
-RewriteRule ^dress-delivery.html?$ delivery.php [NC,L]
-RewriteRule ^confidential.html?$ confidential.php [NC,L]
-
 
 RewriteRule ^brides/all?$ showbrides.php [NC,L]
 RewriteRule ^brides/(.*).html?$ showbrides.php?do=1&id=$1 [NC,L]
