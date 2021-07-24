@@ -8,6 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
+const pugFilesToConvert = require('./website-pug-file-list.js');
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
@@ -50,7 +51,7 @@ const cssLoaders = extra => {
   return loaders
 }
 
-const pugFilesToConvert = require('./website-pug-file-list.js');
+
 let multipleHtmlPlugins = pugFilesToConvert.map(filePath => {
   const name = filePath.slice(filePath.lastIndexOf('/')+1,filePath.lastIndexOf('.'));
   console.log( `Will be added to HTMLWebpackPlugin - ${name}`);

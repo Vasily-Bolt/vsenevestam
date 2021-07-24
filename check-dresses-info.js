@@ -3,7 +3,6 @@ const fs = require('fs');
 
 const extensionsAreImages = ['jpg','JPG','png','PNG'];
 const jsonObjectProperties = ['price','size','additional','dressName','typeOfDress'];
-// const jsonFileEmptyContent = new Object;
 const dressesCatalogMainDir = './src/assets/catalog/dresses/';
 
 const question = question => {
@@ -109,4 +108,4 @@ async function makeFileList(){
   //Конец
 }
 
-makeFileList();
+module.exports = makeFileList();
