@@ -1,4 +1,6 @@
 $(()=> {
   const catalogPath = $(location).attr('pathname');
-  console.log(catalogPath);
+  $('nav').find('a').each( function(ind,elem) {
+    if ( elem.href.includes(catalogPath) ) $(elem).addClass('mark-menu-item');
+  });
 })
