@@ -1,7 +1,7 @@
 $(()=> {
     let isMenuShown = false;
     function showMenu(target){
-        $(target).parent().removeClass(`main-menu--hidden`);
+        $(target).parent().removeClass(`main-menu--hidden`).css('z-index','100');
         $(target).html(`&#10006;`);
         // setTimeout( function(){
         //     $(document).on(`click`, function(event){
@@ -11,7 +11,7 @@ $(()=> {
     }
 
     function hideMenu(target){
-        $(target).parent().addClass(`main-menu--hidden`);
+        $(target).parent().addClass(`main-menu--hidden`).css('z-index','0');;
         $(target).html(`&#9776;`);
     }
     $(document).on(`click`, function(event){

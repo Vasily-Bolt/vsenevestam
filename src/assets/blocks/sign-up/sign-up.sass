@@ -15,7 +15,6 @@ $smallerBall : $laptop-min
   z-index: -1
   position: absolute
   width: 100%
-  cursor: pointer
   visibility: hidden
   transition: all .2s ease-out
   -webkit-transform: hidden
@@ -24,7 +23,36 @@ $smallerBall : $laptop-min
   vertical-align: middle
   text-align: center
 
+
+.signup__modal-form-line
+  display: flex
+  justify-content: space-between
+  padding: 0 1vw
+
+.signup__modal-form
+  margin: 0 auto
+  width: 50%
+  min-width: 200px
+  height: 20vh
+  min-height: 150px
+  background-color: #A59E9E
+  
+.signup__modal-form-wrapper
+  position: fixed
+  width: 100%
+  top: 20%
+
+.signup__modal-container
+  position: fixed
+  opacity: .7
+  background-color: grey
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  
 .signup
+  cursor: pointer
   width: fit-content
   position: -webkit-sticky
   position: sticky

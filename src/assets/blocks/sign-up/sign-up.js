@@ -48,13 +48,37 @@ $(()=> {
       clearInterval(this.pulsation);
     }
 
+    startClickListner() {
+      this.selector.parent().on('click', () => {
+        this.openModal();
+      })
+    }
+
+    openModal(){
+    const modalHTML = `
+      <div class='signup__modal-container'>
+      </div>
+      <div class='signup__modal-form-wrapper'>
+        <form class='signup__modal-form' method='post' action='https://www.vse-nevestam.ru/mail.php'>
+          <p>
+            Для записи на примерку оставь свои контактные данные, пожалуйста.
+          </p>
+          <p class='signup__modal-form-line'>Как можно обращаться<input type='text' name='name'></p>
+          <p class='signup__modal-form-line'>Оставьте контактный телефон<input type='tel' name='phone'></p>
+          <p class='signup__modal-form-line'>Подтвердите отправку данных<input type='submit' value='Записаться'></p>
+        </form>
+        </div>
+      `;
+      $('body').append(modalHTML);
+    }
+
   }
   const blockSignup = new Block(signupBlockSelector);
-  
 
   blockSignup.setCircle(blockSignup.width);
   blockSignup.renderBlock();
-  blockSignup.startPulsation(1.1)
+  blockSignup.startPulsation(1.1);
+  blockSignup.startClickListner();
   // setTimeout(()=> blockSignup.stopPulsation(), 5000 );
   
   // .addEventListener("transitionend", showMessage, false);
