@@ -8,6 +8,11 @@ include ../assets/blocks/sign-up/sign-up
     canonical : 'http://www.vse-nevestam.ru',
     faviconPathName : '/favicon',
   }
+  var address = {
+    city : 'г.Москва',
+    streetHouse: 'Острякова д.3',
+    subway : 'м.Аэропорт',
+  }
 
 block variables
   -
@@ -49,7 +54,7 @@ block variables
           },
         ]
       var topLogoAndInfo = {
-        topText : 'г.Москва, ул.Острякова 3, м.Аэропорт',
+        topText : `<address>${address.city}, ${address.streetHouse}, ${address.subway}</address>`,
         phoneAndMessengers : '7(985)635-5151',
         logo : './images/everypage/vnlogo.png',
         
@@ -82,6 +87,10 @@ html
         +showMainMenu(menuList)
       .layout-content
         block content
-      .layout-foot
+      footer.layout-foot
         block footer
-      +signup
+          .address
+            span= `Наш адрес: ${address.city}, ${address.streetHouse}, ${address.subway}`
+          a(href='/policy.html') Политика конфиденциальности
+
+      //- +signup

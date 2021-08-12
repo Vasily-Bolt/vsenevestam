@@ -102,123 +102,6 @@ module.exports = {
         collapseWhitespace: isProd 
       }
     }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/catalog.pug',
-    //   filename: 'catalog.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/all-dresses.pug',
-    //   filename: 'all-dresses.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/lush-dresses.pug',
-    //   filename: 'lush-dresses.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/cheap-dresses.pug',
-    //   filename: 'cheap-dresses.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/greece-dresses.pug',
-    //   filename: 'greece-dresses.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/lace-dresses.pug',
-    //   filename: 'lace-dresses.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/lush-dresses.pug',
-    //   filename: 'lush-dresses.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/materity-dresses.pug',
-    //   filename: 'materity-dresses.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/mermaid-dresses.pug',
-    //   filename: 'mermaid-dresses.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/sleeves-dresses.pug',
-    //   filename: 'sleeves-dresses.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/straight-dresses.pug',
-    //   filename: 'straight-dresses.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/train-dresses.pug',
-    //   filename: 'train-dresses.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/catalog/discount.pug',
-    //   filename: 'discount.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
     new HTMLWebpackPlugin( {
       template: './pages/contacts/contacts.pug',
       filename: 'contacts.html',
@@ -228,15 +111,7 @@ module.exports = {
         collapseWhitespace: isProd 
       }
     }),
-    // new HTMLWebpackPlugin( {
-    //   template: './pages/articles/wedding-trends-19-20.pug',
-    //   filename: 'wedding-trends-19-20.html',
-    //   inject: true,
-    //   chunks: ['main'],
-    //   minify: {
-    //     collapseWhitespace: isProd 
-    //   }
-    // }),
+
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [

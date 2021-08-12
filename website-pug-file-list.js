@@ -1,5 +1,5 @@
 const fs = require('fs');
-const dirToCheckForFiles = new Array('/pages/catalog','/pages/articles');
+const dirToCheckForFiles = new Array('/pages/catalog','/pages/articles','/pages/additional');
 let pugFilesToConvert = new Array;
 
 for (let directory of dirToCheckForFiles){
