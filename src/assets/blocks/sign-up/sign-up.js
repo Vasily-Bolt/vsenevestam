@@ -70,6 +70,16 @@ $(()=> {
         </div>
       `;
       $('body').append(modalHTML);
+      $('.signup__modal-form').on('submit', function() {
+        event.preventDefault();
+        fetch('https://www.vse-nevestam.ru/mail.php', {
+          mode : 'no-cors',
+        })
+          .then((response) => {
+            
+          });
+
+      });
     }
 
   }
