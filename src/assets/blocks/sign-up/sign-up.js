@@ -72,8 +72,12 @@ $(()=> {
       $('body').append(modalHTML);
       $('.signup__modal-form').on('submit', function() {
         event.preventDefault();
+        const formData = new FormData(this);
         fetch('https://www.vse-nevestam.ru/mail.php', {
           mode : 'no-cors',
+          method : 'POST',
+          body: formData,
+
         })
           .then((response) => {
             
