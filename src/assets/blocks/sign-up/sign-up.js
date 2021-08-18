@@ -8,6 +8,24 @@ $(()=> {
       this.parentOfSelector = $(this.selector).parent();
       this.width = this.parentOfSelector.width()+this.widthHeightIncrement;
       this.height = this.parentOfSelector.height()+this.widthHeightIncrement;
+      this.modalSelector = 'signup';
+      this.modalHTML = `
+      <div id='${this.modalSelector}'>
+        <div class='signup__modal-container'>
+        </div>
+        <div class='signup__modal-form-wrapper'>
+          <form class='signup__modal-form' method='post' action='https://www.vse-nevestam.ru/mail.php'>
+            <p>
+              Для записи на примерку оставь свои контактные данные, пожалуйста.
+            </p>
+            <p class='signup__modal-form-line'>Как можно обращаться<input type='text' name='name'></p>
+            <p class='signup__modal-form-line'>Оставьте контактный телефон<input type='tel' name='phone'></p>
+            <p class='signup__modal-form-line'>Подтвердите отправку данных<input type='submit' value='Записаться'></p>
+            <p class='signup__modal-form-line'>Передумали писать? Звоните!<input type='button' id='signup__modal-form-close' value='Закрыть форму'></p>
+          </form>
+        </div>
+      </div>
+      `;
       // this.offsetBottom = this.selector.offset().top - this.width/2;
       // this.offsetLeft = this.selector.offset().left + this.width/2;
     }
@@ -55,31 +73,40 @@ $(()=> {
     }
 
     openModal(){
-    const modalHTML = `
-      <div class='signup__modal-container'>
-      </div>
-      <div class='signup__modal-form-wrapper'>
-        <form class='signup__modal-form' method='post' action='https://www.vse-nevestam.ru/mail.php'>
-          <p>
-            Для записи на примерку оставь свои контактные данные, пожалуйста.
-          </p>
-          <p class='signup__modal-form-line'>Как можно обращаться<input type='text' name='name'></p>
-          <p class='signup__modal-form-line'>Оставьте контактный телефон<input type='tel' name='phone'></p>
-          <p class='signup__modal-form-line'>Подтвердите отправку данных<input type='submit' value='Записаться'></p>
-        </form>
-        </div>
-      `;
-      $('body').append(modalHTML);
-      $('.signup__modal-form').on('submit', function() {
+    // const modalHTML = `
+    //   <div class='signup__modal-container'>
+    //   </div>
+    //   <div class='signup__modal-form-wrapper'>
+    //     <form class='signup__modal-form' method='post' action='https://www.vse-nevestam.ru/mail.php'>
+    //       <p>
+    //         Для записи на примерку оставь свои контактные данные, пожалуйста.
+    //       </p>
+    //       <p class='signup__modal-form-line'>Как можно обращаться<input type='text' name='name'></p>
+    //       <p class='signup__modal-form-line'>Оставьте контактный телефон<input type='tel' name='phone'></p>
+    //       <p class='signup__modal-form-line'>Подтвердите отправку данных<input type='submit' value='Записаться'></p>
+    //       <p class='signup__modal-form-line'>Передумали писать? Звоните!<input type='button' id='signup__modal-form-close' value='Закрыть форму'></p>
+    //     </form>
+    //     </div>
+    //   `;
+      $('body').append(this.modalHTML);
+      $('.signup__modal-form').one('submit', () => {
         event.preventDefault();
         fetch('https://www.vse-nevestam.ru/mail.php', {
           mode : 'no-cors',
         })
           .then((response) => {
-            
+            this.closeModal();
+            console.log(response);
           });
 
       });
+      $('#signup__modal-form-close').one('click', () => {
+        this.closeModal();
+      });
+    }
+
+    closeModal(){
+      $(`#${this.modalSelector}`).remove();
     }
 
   }
