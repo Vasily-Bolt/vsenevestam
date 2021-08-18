@@ -2,6 +2,7 @@
 include ../assets/blocks/main-menu/main-menu
 include ../assets/blocks/top-sign/top-sign
 include ../assets/blocks/sign-up/sign-up
+include ../assets/blocks/top-menu/top-menu
 
 -
   var globalHead = {
@@ -87,6 +88,7 @@ html
         block header
           .page-head
             +top-sign(topLogoAndInfo)
+            +top-menu()
       .layout-main-menu
         +showMainMenu(menuList)
       .layout-content

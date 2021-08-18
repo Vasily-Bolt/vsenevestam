@@ -73,39 +73,35 @@ $(()=> {
     }
 
     openModal(){
-    // const modalHTML = `
-    //   <div class='signup__modal-container'>
-    //   </div>
-    //   <div class='signup__modal-form-wrapper'>
-    //     <form class='signup__modal-form' method='post' action='https://www.vse-nevestam.ru/mail.php'>
-    //       <p>
-    //         Для записи на примерку оставь свои контактные данные, пожалуйста.
-    //       </p>
-    //       <p class='signup__modal-form-line'>Как можно обращаться<input type='text' name='name'></p>
-    //       <p class='signup__modal-form-line'>Оставьте контактный телефон<input type='tel' name='phone'></p>
-    //       <p class='signup__modal-form-line'>Подтвердите отправку данных<input type='submit' value='Записаться'></p>
-    //       <p class='signup__modal-form-line'>Передумали писать? Звоните!<input type='button' id='signup__modal-form-close' value='Закрыть форму'></p>
-    //     </form>
-    //     </div>
-    //   `;
+      this.selector.parent().css({
+        'display' : 'none',
+      });
       $('body').append(this.modalHTML);
-      $('.signup__modal-form').one('submit', () => {
+
+      $('.signup__modal-form').one('submit', function() {
         event.preventDefault();
+        const formData = new FormData(this);
         fetch('https://www.vse-nevestam.ru/mail.php', {
           mode : 'no-cors',
+          method : 'POST',
+          body: formData,
         })
           .then((response) => {
-            this.closeModal();
             console.log(response);
+            $('#signup__modal-form-close').click();
           });
 
       });
+
       $('#signup__modal-form-close').one('click', () => {
         this.closeModal();
       });
     }
 
     closeModal(){
+      this.selector.parent().css({
+        'display' : 'block',
+      });
       $(`#${this.modalSelector}`).remove();
     }
 
