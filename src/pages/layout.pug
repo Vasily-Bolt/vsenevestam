@@ -2,11 +2,13 @@
 include ../assets/blocks/main-menu/main-menu
 include ../assets/blocks/top-sign/top-sign
 include ../assets/blocks/sign-up/sign-up
+include ../assets/blocks/breadcumbs/breadcumbs
 include ../assets/blocks/top-menu/top-menu
+
 
 -
   var globalHead = {
-    canonical : 'http://www.vse-nevestam.ru',
+    canonical : 'https://www.vse-nevestam.ru',
     faviconPathName : '/favicon',
   }
   var address = {
@@ -17,6 +19,10 @@ include ../assets/blocks/top-menu/top-menu
 
 block variables
   -
+    var breadcumbList = [{
+      name : 'Салон Всё Невестам',
+      href : `${globalHead.canonical}`
+    }]
     var dressNames = ['Оливия','Эмма','Ава','Шарлота','София']
     var menuList = [
           {
@@ -88,7 +94,7 @@ html
         block header
           .page-head
             +top-sign(topLogoAndInfo)
-            +top-menu()
+            +top-menu(breadcumbList)
       .layout-main-menu
         +showMainMenu(menuList)
       .layout-content
@@ -98,5 +104,4 @@ html
           .address
             span= `Наш адрес: ${address.city}, ${address.streetHouse}, ${address.subway}`
           a(href='/policy.html') Политика конфиденциальности
-
       +signup

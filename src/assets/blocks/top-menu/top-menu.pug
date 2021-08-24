@@ -1,5 +1,6 @@
-mixin top-menu()
+mixin top-menu(breadcumbList)
   div 
     nav.top-menu
       a.top-menu-item.top-menu-item--grey-background-hover(href="./all-dresses.html") Свадебные платья
+      +breadcumbs(breadcumbList)
       a.top-menu-item.top-menu-item--grey-background-hover(href="./contacts.html") Контакты

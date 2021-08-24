@@ -3,6 +3,10 @@ extends ../layout.pug
 
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Политика конфиденциальности',
+      href : `./policy.html`
+    }
     var PageHead = {
       title : 'Всё Невестам - политика конфиденциальности',
       keywords : 'политика конфиденциальности, privacy policy',
