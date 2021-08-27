@@ -3,6 +3,14 @@ extends ../layout.pug
 include ../../assets/articles/svadebnye-trendy-2020/svadebnye-trendy-2020
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : `./articles.html`
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Свадебные тренды',
+      href : `./svadebnye-trendy-2020.html`
+    }
     var PageHead = {
       title : 'Свадебные тренды',
       keywords : 'Свадебные тренды',

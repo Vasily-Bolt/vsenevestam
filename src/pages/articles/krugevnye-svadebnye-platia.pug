@@ -3,9 +3,17 @@ extends ../layout.pug
 include ../../assets/articles/krugevnye-svadebnye-platia/krugevnye-svadebnye-platia
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : `./articles.html`
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Кружево в платье невесты',
+      href : `./krugevnye-svadebnye-platia.html`
+    }
     var PageHead = {
       title : 'Кружево в платье невесты',
-      keywords : 'Кружево в платье невесты',
+      keywords : 'купить свадебное платье с кружевом',
       description : 'Кружево в платье невесты',
     }
     

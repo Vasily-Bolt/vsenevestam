@@ -3,6 +3,14 @@ extends ../layout.pug
 include ../../assets/articles/glavnyi-atribut-svadby/glavnyi-atribut-svadby
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : `./articles.html`
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Платье - главный атрибут свадьбы',
+      href : `./glavnyi-atribut-svadby.html`
+    }
     var PageHead = {
       title : 'Платье - главный атрибут свадьбы',
       keywords : 'Платье - главный атрибут свадьбы',

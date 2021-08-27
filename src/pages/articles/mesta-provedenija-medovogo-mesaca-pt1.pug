@@ -3,6 +3,14 @@ extends ../layout.pug
 include ../../assets/articles/mesta-provedenija-medovogo-mesaca-pt1/mesta-provedenija-medovogo-mesaca-pt1
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : `./articles.html`
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Экзотические места проведения медового месяца (Перу, Колорадо, Африка)',
+      href : `./mesta-provedenija-medovogo-mesaca-pt1.html`
+    }
     var PageHead = {
       title : 'Экзотические места проведения медового месяца (Перу, Колорадо, Африка)',
       keywords : 'Экзотические места проведения медового месяца (Перу, Колорадо, Африка)',

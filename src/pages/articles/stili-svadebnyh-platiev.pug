@@ -3,6 +3,14 @@ extends ../layout.pug
 include ../../assets/articles/stili-svadebnyh-platiev/stili-svadebnyh-platiev
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : `./articles.html`
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Стили свадебных платьев',
+      href : `./stili-svadebnyh-platiev.html`
+    }
     var PageHead = {
       title : 'Стили свадебных платьев',
       keywords : 'Стили свадебных платьев',

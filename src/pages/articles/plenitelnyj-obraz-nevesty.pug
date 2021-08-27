@@ -3,6 +3,14 @@ extends ../layout.pug
 include ../../assets/articles/plenitelnyj-obraz-nevesty/plenitelnyj-obraz-nevesty
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : `./articles.html`
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'как подготовиться к свадьбе',
+      href : `./plenitelnyj-obraz-nevesty.html`
+    }
     var PageHead = {
       title : 'Пленительный образ невесты: как подготовиться к свадьбе?',
       keywords : 'Пленительный образ невесты: как подготовиться к свадьбе?',

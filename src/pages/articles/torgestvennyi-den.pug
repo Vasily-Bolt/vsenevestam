@@ -3,6 +3,14 @@ extends ../layout.pug
 include ../../assets/articles/torgestvennyi-den/torgestvennyi-den
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : `./articles.html`
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Ваш торжественный миг',
+      href : `./torgestvennyi-den.html`
+    }
     var PageHead = {
       title : 'Ваш торжественный миг.',
       keywords : 'Ваш торжественный миг.',

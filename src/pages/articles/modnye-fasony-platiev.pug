@@ -3,10 +3,18 @@ extends ../layout.pug
 include ../../assets/articles/modnye-fasony-platiev/modnye-fasony-platiev
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : `./articles.html`
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Элегантные свадебные платья в пол',
+      href : `./modnye-fasony-platiev.html`
+    }
     var PageHead = {
-      title : 'Элегантные свадебные платья в пол',
-      keywords : 'Элегантные свадебные платья в пол',
-      description : 'Элегантные свадебные платья в пол',
+      title : 'Купить свадебное платье в пол',
+      keywords : 'Купить свадебное платье в пол',
+      description : 'Купить свадебное платье в пол',
     }
     
 append content

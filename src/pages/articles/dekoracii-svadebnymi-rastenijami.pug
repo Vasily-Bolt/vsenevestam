@@ -3,6 +3,14 @@ extends ../layout.pug
 include ../../assets/articles/dekoracii-svadebnymi-rastenijami/dekoracii-svadebnymi-rastenijami
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : `./articles.html`
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Декорация свадьбы растениями и травами',
+      href : `./dekoracii-svadebnymi-rastenijami.html`
+    }
     var PageHead = {
       title : 'Декорация свадьбы растениями и травами',
       keywords : 'Декорация свадьбы растениями и травами',
@@ -10,5 +18,4 @@ append variables
     }
     
 append content
-  +dekoracii-svadebnymi-rastenijami
-    
+  +dekoracii-svadebnymi-rastenijami    

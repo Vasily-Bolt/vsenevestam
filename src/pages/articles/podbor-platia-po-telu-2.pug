@@ -3,6 +3,14 @@ extends ../layout.pug
 include ../../assets/articles/podbor-platia-po-telu-2/podbor-platia-po-telu-2
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : `./articles.html`
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Подбор одежды по телосложению (треугольник, прямоугольник и часы)',
+      href : `./podbor-platia-po-telu-2.html`
+    }
     var PageHead = {
       title : 'Подбор одежды по телосложению (треугольник, прямоугольник и часы)',
       keywords : 'Подбор одежды по телосложению (треугольник, прямоугольник и часы)',
