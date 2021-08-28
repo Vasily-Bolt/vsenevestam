@@ -1,6 +1,7 @@
 mixin top-menu(breadcumbList)
   div 
     nav.top-menu
-      a.top-menu-item.top-menu-item--grey-background-hover(href="./all-dresses.html") Свадебные платья
-      +breadcumbs(breadcumbList)
-      a.top-menu-item.top-menu-item--grey-background-hover(href="./contacts.html") Контакты
+      a.top-menu-item.top-menu-item--menu-dresses.top-menu-item--grey-background-hover(href="./all-dresses.html") Свадебные платья
+      .top-menu__breadcumbs
+        +breadcumbs(breadcumbList)
+      a.top-menu-item.top-menu-item--menu-contacts.top-menu-item--grey-background-hover(href="./contacts.html") Контакты

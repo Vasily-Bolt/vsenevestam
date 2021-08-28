@@ -1,6 +1,16 @@
 @import ./__menu-item/top-menu-item
 
+.top-menu__breadcumbs
+  grid-area: breadcumbs
+
 .top-menu
-  display: flex
+  display: grid
+  grid-template-areas: "menu-dresses menu-contacts" "breadcumbs breadcumbs" 
+  grid-template-columns: 2fr 1fr
   justify-content: space-between
   text-transform: uppercase
+
+@media screen and (min-width: $laptop-max)
+  .top-menu
+    grid-template-areas: "menu-dresses breadcumbs menu-contacts" 
+    grid-template-columns: max-content
