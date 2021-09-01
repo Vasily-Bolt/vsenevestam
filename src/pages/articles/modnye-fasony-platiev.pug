@@ -3,18 +3,20 @@ extends ../layout.pug
 include ../../assets/articles/modnye-fasony-platiev/modnye-fasony-platiev
 append variables
   -
+    var thisPageAddress = 'modnye-fasony-platiev.html'
     breadcumbList[breadcumbList.length] = {
       name : 'Заметки от салона Всё Невестам',
       href : `./articles.html`
     }
     breadcumbList[breadcumbList.length] = {
       name : 'Элегантные свадебные платья в пол',
-      href : `./modnye-fasony-platiev.html`
+      href : `./${thisPageAddress}`
     }
     var PageHead = {
       title : 'Купить свадебное платье в пол',
       keywords : 'Купить свадебное платье в пол',
       description : 'Купить свадебное платье в пол',
+      canonical : `${globalHead.canonical}/${thisPageAddress}`,
     }
     
 append content

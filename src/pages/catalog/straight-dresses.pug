@@ -6,18 +6,20 @@ include ../../assets/articles/straight-dresses-article/straight-dresses-article
 
 append variables
   -
+    var thisPageAddress = 'straight-dresses.html'
     breadcumbList[breadcumbList.length] = {
         name : 'Каталог свадебных платьев',
         href : `./all-dresses.html`
       }
     breadcumbList[breadcumbList.length] = {
       name : 'Прямые свадебные платья',
-      href : `./straight-dresses.html`
+      href : `./${thisPageAddress}`
     }
     var PageHead = {
       title : 'Купить прямое свадебное платье',
       keywords : 'каталог прямых свадебных платьев, цены на прямые свадебные платья',
       description : 'Каталог прямых свадебных платьев Все Невестам',
+      canonical : `${globalHead.canonical}/${thisPageAddress}`,
     }
   include ./dresses-list
     //если убрать эту пустую строку то нихера не работает получение переменных из dresses-list

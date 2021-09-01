@@ -3,18 +3,20 @@ extends ../layout.pug
 include ../../assets/articles/plenitelnyj-obraz-nevesty/plenitelnyj-obraz-nevesty
 append variables
   -
+    var thisPageAddress = 'plenitelnyj-obraz-nevesty.html'
     breadcumbList[breadcumbList.length] = {
       name : 'Заметки от салона Всё Невестам',
       href : `./articles.html`
     }
     breadcumbList[breadcumbList.length] = {
       name : 'как подготовиться к свадьбе',
-      href : `./plenitelnyj-obraz-nevesty.html`
+      href : `./${thisPageAddress}`
     }
     var PageHead = {
       title : 'Пленительный образ невесты: как подготовиться к свадьбе?',
       keywords : 'Пленительный образ невесты: как подготовиться к свадьбе?',
       description : 'Пленительный образ невесты: как подготовиться к свадьбе?',
+      canonical : `${globalHead.canonical}/${thisPageAddress}`,
     }
     
 append content

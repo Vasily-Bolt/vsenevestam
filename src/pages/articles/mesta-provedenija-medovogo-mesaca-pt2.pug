@@ -3,18 +3,20 @@ extends ../layout.pug
 include ../../assets/articles/mesta-provedenija-medovogo-mesaca-pt2/mesta-provedenija-medovogo-mesaca-pt2
 append variables
   -
+    var thisPageAddress = 'mesta-provedenija-medovogo-mesaca-pt2.html'
     breadcumbList[breadcumbList.length] = {
       name : 'Заметки от салона Всё Невестам',
       href : `./articles.html`
     }
     breadcumbList[breadcumbList.length] = {
       name : 'Экзотические места проведения медового месяца (Острова, Мьянма, Мексика, Колумбия)',
-      href : `./mesta-provedenija-medovogo-mesaca-pt2.html`
+      href : `./${thisPageAddress}`
     }
     var PageHead = {
       title : 'Экзотические места проведения медового месяца (Острова, Мьянма, Мексика, Колумбия)',
       keywords : 'Экзотические места проведения медового месяца (Острова, Мьянма, Мексика, Колумбия)',
       description : 'Экзотические места проведения медового месяца (Острова, Мьянма, Мексика, Колумбия)',
+      canonical : `${globalHead.canonical}/${thisPageAddress}`,
     }
     
 append content

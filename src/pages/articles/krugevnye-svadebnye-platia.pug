@@ -3,18 +3,20 @@ extends ../layout.pug
 include ../../assets/articles/krugevnye-svadebnye-platia/krugevnye-svadebnye-platia
 append variables
   -
+    var thisPageAddress = 'krugevnye-svadebnye-platia.html'
     breadcumbList[breadcumbList.length] = {
       name : 'Заметки от салона Всё Невестам',
       href : `./articles.html`
     }
     breadcumbList[breadcumbList.length] = {
       name : 'Кружево в платье невесты',
-      href : `./krugevnye-svadebnye-platia.html`
+      href : `./${thisPageAddress}`
     }
     var PageHead = {
       title : 'Кружево в платье невесты',
       keywords : 'купить свадебное платье с кружевом',
       description : 'Кружево в платье невесты',
+      canonical : `${globalHead.canonical}/${thisPageAddress}`,
     }
     
 append content

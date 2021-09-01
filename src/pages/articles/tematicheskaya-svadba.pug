@@ -3,18 +3,20 @@ extends ../layout.pug
 include ../../assets/articles/tematicheskaya-svadba/tematicheskaya-svadba
 append variables
   -
+    var thisPageAddress = 'tematicheskaya-svadba.html'
     breadcumbList[breadcumbList.length] = {
       name : 'Заметки от салона Всё Невестам',
       href : `./articles.html`
     }
     breadcumbList[breadcumbList.length] = {
       name : 'Тематическая свадьба',
-      href : `./tematicheskaya-svadba.html`
+      href : `./${thisPageAddress}`
     }
     var PageHead = {
       title : 'Тематическая свадьба',
       keywords : 'Тематическая свадьба',
       description : 'Тематическая свадьба',
+      canonical : `${globalHead.canonical}/${thisPageAddress}`,
     }
     
 append content

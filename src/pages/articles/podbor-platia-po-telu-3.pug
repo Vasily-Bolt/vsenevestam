@@ -3,18 +3,20 @@ extends ../layout.pug
 include ../../assets/articles/podbor-platia-po-telu-3/podbor-platia-po-telu-3
 append variables
   -
+    var thisPageAddress = 'podbor-platia-po-telu-3.html'
     breadcumbList[breadcumbList.length] = {
       name : 'Заметки от салона Всё Невестам',
       href : `./articles.html`
     }
     breadcumbList[breadcumbList.length] = {
       name : 'Подбор одежды по телосложению (высокая или миниатюрная девушка)',
-      href : `./podbor-platia-po-telu-3.html`
+      href : `./${thisPageAddress}`
     }
     var PageHead = {
       title : 'Подбор одежды по телосложению (высокая или миниатюрная девушка)',
       keywords : 'Подбор одежды по телосложению (высокая или миниатюрная девушка)',
       description : 'Подбор одежды по телосложению (высокая или миниатюрная девушка)',
+      canonical : `${globalHead.canonical}/${thisPageAddress}`,
     }
     
 append content

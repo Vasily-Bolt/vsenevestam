@@ -3,18 +3,20 @@ extends ../layout.pug
 include ../../assets/articles/stili-svadebnyh-platiev/stili-svadebnyh-platiev
 append variables
   -
+    var thisPageAddress = 'stili-svadebnyh-platiev.html'
     breadcumbList[breadcumbList.length] = {
       name : 'Заметки от салона Всё Невестам',
       href : `./articles.html`
     }
     breadcumbList[breadcumbList.length] = {
       name : 'Стили свадебных платьев',
-      href : `./stili-svadebnyh-platiev.html`
+      href : `./${thisPageAddress}`
     }
     var PageHead = {
       title : 'Стили свадебных платьев',
       keywords : 'Стили свадебных платьев',
       description : 'Стили свадебных платьев',
+      canonical : `${globalHead.canonical}/${thisPageAddress}`,
     }
     
 append content
