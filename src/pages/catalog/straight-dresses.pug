@@ -19,8 +19,8 @@ append variables
       title : 'Купить прямое свадебное платье',
       keywords : 'каталог прямых свадебных платьев, цены на прямые свадебные платья',
       description : 'Каталог прямых свадебных платьев Все Невестам',
-      canonical : `${globalHead.canonical}/${thisPageAddress}`,
     }
+    globalHead.canonical += '/straight-dresses.html'
   include ./dresses-list
     //если убрать эту пустую строку то нихера не работает получение переменных из dresses-list
 

@@ -3,20 +3,19 @@ extends ../layout.pug
 include ../../assets/articles/svadebnoye-platie-bu/svadebnoye-platie-bu
 append variables
   -
-    var thisPageAddress = 'svadebnoye-platie-bu.html'
-    breadcumbList[breadcumbList.length] = {
-      name : 'Заметки от салона Всё Невестам',
-      href : `./articles.html`
-    }
-    breadcumbList[breadcumbList.length] = {
-      name : 'Свадебные платья бу',
-      href : `./${thisPageAddress}`
-    }
     var PageHead = {
       title : 'Свадебные платья бу (бывшие в употреблении)',
       keywords : 'Свадебные платья бу (бывшие в употреблении)',
       description : 'Свадебные платья бу (бывшие в употреблении)',
-      canonical : `${globalHead.canonical}/${thisPageAddress}`,
+    }
+    globalHead.canonical += '/svadebnoye-platie-bu.html'
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : './articles.html'
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Декорация свадьбы растениями и травами',
+      href : './svadebnoye-platie-bu.html'
     }
     
 append content

@@ -3,18 +3,19 @@ extends ../layout.pug
 include ../../assets/articles/vybor-platia-po-photo/vybor-platia-po-photo
 append variables
   -
-    breadcumbList[breadcumbList.length] = {
-      name : 'Заметки от салона Всё Невестам',
-      href : `./articles.html`
-    }
-    breadcumbList[breadcumbList.length] = {
-      name : 'Как выбирать свадебное платье',
-      href : `./${thisPageAddress}`
-    }
     var PageHead = {
       title : 'Как выбирать свадебное платье',
       keywords : 'Как выбирать свадебное платье',
       description : 'Как выбирать свадебное платье',
+    }
+    globalHead.canonical += '/vybor-platia-po-photo.html'
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : './articles.html'
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Декорация свадьбы растениями и травами',
+      href : './vybor-platia-po-photo.html'
     }
     
 append content

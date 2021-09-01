@@ -9,18 +9,17 @@ append variables
       description : 'Как попасть в свадебный салон Всё Невестам',
     }
     
+append head 
+  script(type="application/ld+json")
+    include jsonld.json
 append content
   h1 Контакты свадебного салона Всё Невестам
   detail
     p Мы находимся недалеко от м.Аэропорт, 4 минуты пешком
     p Адрес: г. Москва, ул. Острякова д.3 <br>Работаем каждый день с 10:00 до 20:00
     p Телефон для информации
-    a(href="tel:+79856355151") 8-985-635-5151
+    a(href='tel:+79856355151') 8-985-635-5151
     span или 
-    a(href="mailto:vse-nevestam@bk.ru") vse-nevestam@bk.ru
+    a(href='mailto:vse-nevestam@bk.ru') vse-nevestam@bk.ru
     //- p Пожалуйста, ознакомьтесь с разделом <a href='/faq.html'>Часто задаваемых вопросов
     img(style='max-width: 500px' src='./images/address.png')
-    //- p Правила примерки в свадебном салоне Все Невестам:
-    //- ul
-    //-   li - Примерка БЕСПЛАТНА В РАЗУМНЫХ ПРЕДЕЛАХ (до 10 шт).
-    //-   li - На примерку приезжайте, пожалуйста, БЕЗ КОСМЕТИКИ!

@@ -1,27 +1,23 @@
 
 extends ../layout.pug
 include ../../assets/articles/dekoracii-svadebnymi-rastenijami/dekoracii-svadebnymi-rastenijami
-
 append variables
   -
-    var thisPageAddress = 'dekoracii-svadebnymi-rastenijami.html'
     var PageHead = {
       title : 'Декорация свадьбы растениями и травами',
       keywords : 'Декорация свадьбы растениями и травами',
       description : 'Декорация свадьбы растениями и травами',
-      canonical : `${globalHead.canonical}/${thisPageAddress}`,
     }
+    globalHead.canonical += '/dekoracii-svadebnymi-rastenijami.html'
     breadcumbList[breadcumbList.length] = {
       name : 'Заметки от салона Всё Невестам',
-      href : `./articles.html`
+      href : './articles.html'
     }
     breadcumbList[breadcumbList.length] = {
       name : 'Декорация свадьбы растениями и травами',
-      href : `./${thisPageAddress}`
+      href : './dekoracii-svadebnymi-rastenijami.html'
     }
     
-    
-append head
-
 append content
-  +dekoracii-svadebnymi-rastenijami    
+  +dekoracii-svadebnymi-rastenijami
+    

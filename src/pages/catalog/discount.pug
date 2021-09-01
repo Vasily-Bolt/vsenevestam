@@ -19,8 +19,8 @@ append variables
       title : 'Купить свадебное платье по распродаже',
       keywords : 'Распродажа свадебных платьев, цены на свадебные платья по распродаже',
       description : 'Распродажа свадебных платьев Все Невестам',
-      canonical : `${globalHead.canonical}/${thisPageAddress}`,
     }
+    globalHead.canonical += '/discount.html'
   include ./dresses-list
     //если убрать эту пустую строку то нихера не работает получение переменных из dresses-list
 

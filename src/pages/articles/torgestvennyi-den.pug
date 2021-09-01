@@ -3,20 +3,19 @@ extends ../layout.pug
 include ../../assets/articles/torgestvennyi-den/torgestvennyi-den
 append variables
   -
-    var thisPageAddress = 'dekoracii-svadebnymi-rastenijami.html'
-    breadcumbList[breadcumbList.length] = {
-      name : 'Заметки от салона Всё Невестам',
-      href : `./articles.html`
-    }
-    breadcumbList[breadcumbList.length] = {
-      name : 'Ваш торжественный миг',
-      href : `./${thisPageAddress}`
-    }
     var PageHead = {
       title : 'Ваш торжественный миг.',
       keywords : 'Ваш торжественный миг.',
       description : 'Ваш торжественный миг.',
-      canonical : `${globalHead.canonical}/${thisPageAddress}`,
+    }
+    globalHead.canonical += '/torgestvennyi-den.html'
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : './articles.html'
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Декорация свадьбы растениями и травами',
+      href : './torgestvennyi-den.html'
     }
     
 append content

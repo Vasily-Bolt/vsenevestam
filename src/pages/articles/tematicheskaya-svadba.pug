@@ -3,21 +3,21 @@ extends ../layout.pug
 include ../../assets/articles/tematicheskaya-svadba/tematicheskaya-svadba
 append variables
   -
-    var thisPageAddress = 'tematicheskaya-svadba.html'
-    breadcumbList[breadcumbList.length] = {
-      name : 'Заметки от салона Всё Невестам',
-      href : `./articles.html`
-    }
-    breadcumbList[breadcumbList.length] = {
-      name : 'Тематическая свадьба',
-      href : `./${thisPageAddress}`
-    }
     var PageHead = {
       title : 'Тематическая свадьба',
       keywords : 'Тематическая свадьба',
       description : 'Тематическая свадьба',
-      canonical : `${globalHead.canonical}/${thisPageAddress}`,
+    }
+    globalHead.canonical += '/tematicheskaya-svadba.html'
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : './articles.html'
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Декорация свадьбы растениями и травами',
+      href : './tematicheskaya-svadba.html'
     }
     
 append content
   +tematicheskaya-svadba
+    

@@ -2,21 +2,20 @@
 extends ../layout.pug
 include ../../assets/articles/dlya-polnoj-nevesty/dlya-polnoj-nevesty
 append variables
-  - 
-    var thisPageAddress = 'dlya-polnoj-nevesty.html'
+  -
+    var PageHead = {
+      title : 'Особая коллекция – свадебные платья для полных',
+      keywords : 'Особая коллекция – свадебные платья для полных',
+      description : 'Особая коллекция – свадебные платья для полных',
+    }
+    globalHead.canonical += '/dlya-polnoj-nevesty.html'
     breadcumbList[breadcumbList.length] = {
       name : 'Заметки от салона Всё Невестам',
-      href : `./articles.html`
+      href : './articles.html'
     }
     breadcumbList[breadcumbList.length] = {
-      name : 'свадебные платья для полных',
-      href : `./${thisPageAddress}`
-    }
-    var PageHead = {
-      title : 'Купить свадебное платье для полных',
-      keywords : 'купить свадебное платье для полных',
-      description : 'Особая коллекция – свадебные платья для полных',
-      canonical : `${globalHead.canonical}/${thisPageAddress}`,
+      name : 'Декорация свадьбы растениями и травами',
+      href : './dlya-polnoj-nevesty.html'
     }
     
 append content

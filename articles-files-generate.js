@@ -32,6 +32,15 @@ append variables
       keywords : '${HeaderOfArticle}',
       description : '${HeaderOfArticle}',
     }
+    globalHead.canonical += '/${articleName}.html'
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : './articles.html'
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Декорация свадьбы растениями и травами',
+      href : './${articleName}.html'
+    }
     
 append content
   +${articleName}
@@ -39,13 +48,6 @@ append content
     fs.writeFileSync(`${readyarticlesFileDir}${articleName}.pug`,pugFileArticleContent);
   
     pugFileArticleContent = '';
-  }
-}
-
-const files = {
-  asd : 'asd',
-  fileGenerate : function() {
-    return readyarticlesFileDir;
   }
 }
 

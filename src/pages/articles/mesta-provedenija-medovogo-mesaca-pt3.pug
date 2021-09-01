@@ -3,20 +3,19 @@ extends ../layout.pug
 include ../../assets/articles/mesta-provedenija-medovogo-mesaca-pt3/mesta-provedenija-medovogo-mesaca-pt3
 append variables
   -
-    var thisPageAddress = 'mesta-provedenija-medovogo-mesaca-pt3.html'
-    breadcumbList[breadcumbList.length] = {
-      name : 'Заметки от салона Всё Невестам',
-      href : `./articles.html`
-    }
-    breadcumbList[breadcumbList.length] = {
-      name : 'Экзотические места отдыха после свадьбы (Марокко, Австралия, Исландия, Италия)',
-      href : `./${thisPageAddress}`
-    }
     var PageHead = {
       title : 'Экзотические места отдыха после свадьбы (Марокко, Австралия, Исландия, Италия)',
       keywords : 'Экзотические места отдыха после свадьбы (Марокко, Австралия, Исландия, Италия)',
       description : 'Экзотические места отдыха после свадьбы (Марокко, Австралия, Исландия, Италия)',
-      canonical : `${globalHead.canonical}/${thisPageAddress}`,
+    }
+    globalHead.canonical += '/mesta-provedenija-medovogo-mesaca-pt3.html'
+    breadcumbList[breadcumbList.length] = {
+      name : 'Заметки от салона Всё Невестам',
+      href : './articles.html'
+    }
+    breadcumbList[breadcumbList.length] = {
+      name : 'Декорация свадьбы растениями и травами',
+      href : './mesta-provedenija-medovogo-mesaca-pt3.html'
     }
     
 append content
