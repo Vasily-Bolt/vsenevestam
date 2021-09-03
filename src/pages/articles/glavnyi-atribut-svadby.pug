@@ -18,6 +18,10 @@ append variables
       href : './glavnyi-atribut-svadby.html'
     }
     
+append head 
+  script(type="application/ld+json")
+    include glavnyi-atribut-svadby-jsonld.json
+
 append content
   +glavnyi-atribut-svadby
     

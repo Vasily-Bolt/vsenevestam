@@ -18,6 +18,10 @@ append variables
       href : './krugevnye-svadebnye-platia.html'
     }
     
+append head 
+  script(type="application/ld+json")
+    include krugevnye-svadebnye-platia-jsonld.json
+
 append content
   +krugevnye-svadebnye-platia
     

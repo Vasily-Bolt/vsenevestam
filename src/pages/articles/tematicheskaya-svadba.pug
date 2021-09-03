@@ -18,6 +18,10 @@ append variables
       href : './tematicheskaya-svadba.html'
     }
     
+append head 
+  script(type="application/ld+json")
+    include tematicheskaya-svadba-jsonld.json
+
 append content
   +tematicheskaya-svadba
     

@@ -18,6 +18,10 @@ append variables
       href : './mesta-provedenija-medovogo-mesaca-pt3.html'
     }
     
+append head 
+  script(type="application/ld+json")
+    include mesta-provedenija-medovogo-mesaca-pt3-jsonld.json
+
 append content
   +mesta-provedenija-medovogo-mesaca-pt3
     

@@ -18,6 +18,10 @@ append variables
       href : './vybor-platia-po-photo.html'
     }
     
+append head 
+  script(type="application/ld+json")
+    include vybor-platia-po-photo-jsonld.json
+
 append content
   +vybor-platia-po-photo
     

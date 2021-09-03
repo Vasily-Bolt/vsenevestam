@@ -18,6 +18,10 @@ append variables
       href : './svadebnye-trendy-2020.html'
     }
     
+append head 
+  script(type="application/ld+json")
+    include svadebnye-trendy-2020-jsonld.json
+
 append content
   +svadebnye-trendy-2020
     

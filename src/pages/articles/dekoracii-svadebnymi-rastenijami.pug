@@ -18,6 +18,10 @@ append variables
       href : './dekoracii-svadebnymi-rastenijami.html'
     }
     
+append head 
+  script(type="application/ld+json")
+    include dekoracii-svadebnymi-rastenijami-jsonld.json
+
 append content
   +dekoracii-svadebnymi-rastenijami
     

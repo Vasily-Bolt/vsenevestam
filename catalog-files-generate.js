@@ -5,47 +5,47 @@ const readyFileDir = `./src/pages/catalog/`;
 const dressCatalogPages = {
   allDresses : {
     name : "Свадебные платья",
-    href : './all-dresses.html',
+    fileName : 'all-dresses',
   },
   lush : {
     name : "Пышные",
-    href : './lush-dresses.html',
+    fileName : 'lush-dresses',
   },
   greece : {
     name : "Греческие",
-    href : './greece-dresses.html',
+    fileName : 'greece-dresses',
   },
   lace : {
     name : "Кружевные",
-    href : './lace-dresses.html',
+    fileName : 'lace-dresses',
   },
   straight : {
     name : "Прямые",
-    href : './straight-dresses.html',
+    fileName : 'straight-dresses',
   },
   sleeves : {
     name : "С рукавами",
-    href : './sleeves-dresses.html',
+    fileName : 'sleeves-dresses',
   },
   train : {
     name : "Со шлейфом",
-    href : './train-dresses.html',
+    fileName : 'train-dresses',
   },
   mermaid : {
     name : "Русалка",
-    href : './mermaid-dresses.html',
+    fileName : 'mermaid-dresses',
   },
   materity : {
     name : "Беременным",
-    href : './materity-dresses.html',
+    fileName : 'materity-dresses',
   },
   cheap : {
     name : "Дешевые",
-    href : './cheap-dresses.html',
+    fileName : 'cheap-dresses',
   },
   discount : {
     name : "Распродажа",
-    href : './discount.html',
+    fileName : 'discount',
   },
 }
 
@@ -77,11 +77,11 @@ append variables
     globalHead.canonical += '/${articleName}.html'
     breadcumbList[breadcumbList.length] = {
       name : 'Заметки от салона Всё Невестам',
-      href : './articles.html'
+      fileName : './articles.html'
     }
     breadcumbList[breadcumbList.length] = {
       name : 'Декорация свадьбы растениями и травами',
-      href : './${articleName}.html'
+      fileName : './${articleName}.html'
     }
     
 append content

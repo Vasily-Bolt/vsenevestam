@@ -18,6 +18,10 @@ append variables
       href : './plenitelnyj-obraz-nevesty.html'
     }
     
+append head 
+  script(type="application/ld+json")
+    include plenitelnyj-obraz-nevesty-jsonld.json
+
 append content
   +plenitelnyj-obraz-nevesty
     

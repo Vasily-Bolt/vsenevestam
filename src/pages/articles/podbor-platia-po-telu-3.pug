@@ -18,6 +18,10 @@ append variables
       href : './podbor-platia-po-telu-3.html'
     }
     
+append head 
+  script(type="application/ld+json")
+    include podbor-platia-po-telu-3-jsonld.json
+
 append content
   +podbor-platia-po-telu-3
     

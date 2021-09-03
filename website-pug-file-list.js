@@ -6,7 +6,8 @@ for (let directory of dirToCheckForFiles){
   const directoryContent = fs.readdirSync(`./src${directory}`);
 
   for (let pugFile of directoryContent) {
-    pugFilesToConvert.push(`.${directory}/${pugFile}`);
+    if ( pugFile.includes('.pug') )
+      pugFilesToConvert.push(`.${directory}/${pugFile}`);
   }
 }
 
