@@ -2,6 +2,8 @@ const fs = require('fs');
 const articlesMixinsDir = `./src/assets/articles/`;
 const readyFileDir = `./src/pages/catalog/`;
 
+const catalogPagesInfo = JSON.parse(`${fs.readFileSync('./src/assets/json/catalog-data.json')}`);
+
 const dressCatalogPages = {
   allDresses : {
     name : "Свадебные платья",
@@ -60,32 +62,12 @@ function generateFiles(){
   let pugFileArticleContent = '';
   const articleMixinsList = getArticlesList(articlesMixinsDir);
   console.log(articleMixinsList);
-
+  console.log( catalogPagesInfo.dressesCatalog.includes );
   for (let articleName of articleMixinsList){
     // const HeaderOfArticle = GetHeaderFromFileContent(`${articlesMixinsDir}${articleName}/${articleName}.pug`);
-    console.log(HeaderOfArticle);
+    // console.log(HeaderOfArticle);
     pugFileArticleContent += `
-extends ../layout.pug
-include ../../assets/articles/${articleName}/${articleName}
-append variables
-  -
-    var PageHead = {
-      title : '${HeaderOfArticle}',
-      keywords : '${HeaderOfArticle}',
-      description : '${HeaderOfArticle}',
-    }
-    globalHead.canonical += '/${articleName}.html'
-    breadcumbList[breadcumbList.length] = {
-      name : 'Заметки от салона Всё Невестам',
-      fileName : './articles.html'
-    }
-    breadcumbList[breadcumbList.length] = {
-      name : 'Декорация свадьбы растениями и травами',
-      fileName : './${articleName}.html'
-    }
-    
-append content
-  +${articleName}
+
     `;
     fs.writeFileSync(`${readyFileDir}${articleName}.pug`,pugFileArticleContent);
   
