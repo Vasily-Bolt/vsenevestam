@@ -1,4 +1,4 @@
-//- page.pug
+
 extends ../layout.pug
 include ./catalog-includes.pug
 
@@ -6,14 +6,14 @@ include ../../assets/articles/mermaid-dresses-article/mermaid-dresses-article
 
 append variables
   -
-    var thisPageAddress = 'mermaid-dresses.html'
+
     breadcumbList[breadcumbList.length] = {
-        name : 'Каталог свадебных платьев',
-        href : `./all-dresses.html`
-      }
+      name : 'Каталог свадебных платьев',
+      href : 'all-dresses.html'
+    }
     breadcumbList[breadcumbList.length] = {
       name : 'Свадебные платья русалка',
-      href : `./${thisPageAddress}`
+      href : 'mermaid-dresses.html'
     }
     var PageHead = {
       title : 'Купить свадебное платье русалка',
@@ -42,3 +42,4 @@ append content
     - drs.splice(index,1)
   +dress-cards-list(drs,true)
   +mermaid-dresses-article
+  

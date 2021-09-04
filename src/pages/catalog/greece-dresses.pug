@@ -1,4 +1,4 @@
-//- page.pug
+
 extends ../layout.pug
 include ./catalog-includes.pug
 
@@ -6,19 +6,19 @@ include ../../assets/articles/greece-dresses-article/greece-dresses-article
 
 append variables
   -
-    var thisPageAddress = 'greece-dresses.html'
+
     breadcumbList[breadcumbList.length] = {
-        name : 'Каталог свадебных платьев',
-        href : `./all-dresses.html`
-      }
+      name : 'Каталог свадебных платьев',
+      href : 'all-dresses.html'
+    }
     breadcumbList[breadcumbList.length] = {
       name : 'Греческие свадебные платья',
-      href : `./${thisPageAddress}`
+      href : 'greece-dresses.html'
     }
     var PageHead = {
-      title : 'Купить греческое свадебное платье',
-      keywords : 'каталог греческих свадебных платьев, цены на греческие свадебные платья',
-      description : 'Каталог греческих свадебных платьев Все Невестам',
+      title : 'Купить свадебное платье по распродаже',
+      keywords : 'Распродажа свадебных платьев, цены на свадебные платья по распродаже',
+      description : 'Распродажа свадебных платьев Все Невестам',
     }
     globalHead.canonical += '/greece-dresses.html'
   include ./dresses-list
@@ -42,3 +42,4 @@ append content
     - drs.splice(index,1)
   +dress-cards-list(drs,true)
   +greece-dresses-article
+  

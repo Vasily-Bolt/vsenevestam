@@ -1,4 +1,4 @@
-//- page.pug
+
 extends ../layout.pug
 include ./catalog-includes.pug
 
@@ -6,19 +6,19 @@ include ../../assets/articles/materity-dresses-article/materity-dresses-article
 
 append variables
   -
-    var thisPageAddress = 'materity-dresses.html'
+
     breadcumbList[breadcumbList.length] = {
-        name : 'Каталог свадебных платьев',
-        href : `./all-dresses.html`
-      }
+      name : 'Каталог свадебных платьев',
+      href : 'all-dresses.html'
+    }
     breadcumbList[breadcumbList.length] = {
       name : 'Свадебные платья для беременных',
-      href : `./${thisPageAddress}`
+      href : 'materity-dresses.html'
     }
     var PageHead = {
-      title : 'Купить свадебное платье для беременной',
-      keywords : 'каталог свадебных платьев для беременных, цены на свадебные платья для беременных',
-      description : 'Каталог свадебных платьев для беременных Все Невестам',
+      title : 'Купить свадебное платье с рукавами',
+      keywords : 'каталог свадебных платьев со рукавами, цены на свадебные платья с рукавами',
+      description : 'Каталог свадебных платьев с рукавами Все Невестам',
     }
     globalHead.canonical += '/materity-dresses.html'
   include ./dresses-list
@@ -42,3 +42,4 @@ append content
     - drs.splice(index,1)
   +dress-cards-list(drs,true)
   +materity-dresses-article
+  

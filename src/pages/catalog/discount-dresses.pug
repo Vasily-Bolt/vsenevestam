@@ -1,26 +1,26 @@
-//- page.pug
+
 extends ../layout.pug
 include ./catalog-includes.pug
 
-include ../../assets/articles/discount-article/discount-article
+include ../../assets/articles/discount-dresses-article/discount-dresses-article
 
 append variables
   -
-    var thisPageAddress = 'discount.html'
+
     breadcumbList[breadcumbList.length] = {
-        name : 'Каталог свадебных платьев',
-        href : `./all-dresses.html`
-      }
+      name : 'Каталог свадебных платьев',
+      href : 'all-dresses.html'
+    }
     breadcumbList[breadcumbList.length] = {
       name : 'Распродажа свадебных платьев',
-      href : `./${thisPageAddress}`
+      href : 'discount-dresses.html'
     }
     var PageHead = {
-      title : 'Купить свадебное платье по распродаже',
-      keywords : 'Распродажа свадебных платьев, цены на свадебные платья по распродаже',
-      description : 'Распродажа свадебных платьев Все Невестам',
+      title : 'Купить свадебное платье со шлейфом',
+      keywords : 'каталог свадебных платьев со шлейфом, цены на свадебные платья со шлейфом',
+      description : 'Каталог свадебных платьев со шлейфом Все Невестам',
     }
-    globalHead.canonical += '/discount.html'
+    globalHead.canonical += '/discount-dresses.html'
   include ./dresses-list
     //если убрать эту пустую строку то нихера не работает получение переменных из dresses-list
 
@@ -41,4 +41,5 @@ append content
   each index in deleteIndexes
     - drs.splice(index,1)
   +dress-cards-list(drs,true)
-  +discount-article
+  +discount-dresses-article
+  

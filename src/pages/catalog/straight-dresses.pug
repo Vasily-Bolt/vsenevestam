@@ -1,4 +1,4 @@
-//- page.pug
+
 extends ../layout.pug
 include ./catalog-includes.pug
 
@@ -6,19 +6,19 @@ include ../../assets/articles/straight-dresses-article/straight-dresses-article
 
 append variables
   -
-    var thisPageAddress = 'straight-dresses.html'
+
     breadcumbList[breadcumbList.length] = {
-        name : 'Каталог свадебных платьев',
-        href : `./all-dresses.html`
-      }
+      name : 'Каталог свадебных платьев',
+      href : 'all-dresses.html'
+    }
     breadcumbList[breadcumbList.length] = {
       name : 'Прямые свадебные платья',
-      href : `./${thisPageAddress}`
+      href : 'straight-dresses.html'
     }
     var PageHead = {
-      title : 'Купить прямое свадебное платье',
-      keywords : 'каталог прямых свадебных платьев, цены на прямые свадебные платья',
-      description : 'Каталог прямых свадебных платьев Все Невестам',
+      title : 'Купить кружевное свадебное платье',
+      keywords : 'каталог кружевных свадебных платьев, цены на кружевные свадебные платья',
+      description : 'Каталог кружевных свадебных платьев Все Невестам',
     }
     globalHead.canonical += '/straight-dresses.html'
   include ./dresses-list
@@ -42,3 +42,4 @@ append content
     - drs.splice(index,1)
   +dress-cards-list(drs,true)
   +straight-dresses-article
+  

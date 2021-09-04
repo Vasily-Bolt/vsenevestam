@@ -1,4 +1,4 @@
-//- page.pug
+
 extends ../layout.pug
 include ./catalog-includes.pug
 
@@ -6,19 +6,19 @@ include ../../assets/articles/cheap-dresses-article/cheap-dresses-article
 
 append variables
   -
-    var thisPageAddress = 'cheap-dresses.html'
+
     breadcumbList[breadcumbList.length] = {
-        name : 'Каталог свадебных платьев',
-        href : `./all-dresses.html`
-      }
+      name : 'Каталог свадебных платьев',
+      href : 'all-dresses.html'
+    }
     breadcumbList[breadcumbList.length] = {
-      name : 'Недорогие свадебные платья',
-      href : `./${thisPageAddress}`
+      name : 'Свадебные платья недорого',
+      href : 'cheap-dresses.html'
     }
     var PageHead = {
-      title : 'Купить дешевое свадебное платье',
-      keywords : 'каталог недорогих свадебных платьев, дешевые свадебные платья',
-      description : 'Каталог дешевых свадебных платьев Все Невестам',
+      title : 'Купить прямое свадебное платье',
+      keywords : 'каталог прямых свадебных платьев, цены на прямые свадебные платья',
+      description : 'Каталог прямых свадебных платьев Все Невестам',
     }
     globalHead.canonical += '/cheap-dresses.html'
   include ./dresses-list
@@ -32,7 +32,6 @@ append content
     - 
       if ( drs[index].additionalInfo.typeOfDress.includes('cheap') ) {
         drs[index].imageName = drs[index].imageNames[0]
-        //- drs[index].underText = [drs[index].additionalInfo.price, `Размеры в наличии: ${drs[index].additionalInfo.size}`]
         drs[index].underText = [drs[index].additionalInfo.price]
         drs[index].titleUnder = drs[index].additionalInfo.dressName
       } else {
@@ -43,3 +42,4 @@ append content
     - drs.splice(index,1)
   +dress-cards-list(drs,true)
   +cheap-dresses-article
+  

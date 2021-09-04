@@ -73,6 +73,7 @@ async function makeFileList(){
           // console.log(namesNotUsed);
         } else missingProperty = await question(`${questionText}Что добавить?:`);
         // console.log( missingProperty );
+        if (key == 'typeOfDress' ) missingProperty += ',all';
         jsonContent[key] = missingProperty;
         // console.log(jsonContent);
         isDifferent = true;
