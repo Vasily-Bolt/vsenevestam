@@ -111,6 +111,15 @@ module.exports = {
         collapseWhitespace: isProd 
       }
     }),
+    // new HTMLWebpackPlugin( {
+    //   template: './pages/articles/dekoracii-svadebnymi-rastenijami.pug',
+    //   filename: './articles/index.html',
+    //   inject: true,
+    //   chunks: ['main'],
+    //   minify: {
+    //     collapseWhitespace: isProd 
+    //   }
+    // }),
 
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({

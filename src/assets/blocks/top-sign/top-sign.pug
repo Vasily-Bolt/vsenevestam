@@ -6,8 +6,8 @@ mixin top-sign(mainInfo)
     div
       span!= mainInfo.topText
     div.top-sign__paragraph-margin
-      img.top-sign__messengers(src='./images/everypage/phone.png')
-      img.top-sign__messengers(src='./images/everypage/viber.png')
-      img.top-sign__messengers(src='./images/everypage/whatsapp.png')
+      img.top-sign__messengers(src='/images/everypage/phone.png')
+      img.top-sign__messengers(src='/images/everypage/viber.png')
+      img.top-sign__messengers(src='/images/everypage/whatsapp.png')
       a(href=`tel:+${mainInfo.phoneAndMessengers}`)= mainInfo.phoneAndMessengers
     p.top-sign__paragraph-margin Ежедневно с 10:00 до 20:00
