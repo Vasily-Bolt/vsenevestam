@@ -4,4 +4,3 @@ const dressListPugCreateFunc = require('./check-dresses-info.js');
 articlesFilesGenerateFunc;
 dressListPugCreateFunc;
 resizeImagesFunc;
-// resizeImagesFunc;

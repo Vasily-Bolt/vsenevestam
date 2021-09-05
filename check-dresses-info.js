@@ -89,7 +89,7 @@ async function makeFileList(){
     }
     console.log('');
     fileListCode += `{
-        imagePath: './${imagesPath}',
+        imagePath: '/${imagesPath}',
         imageNames:[`;
     //Перебор подпапки с картинками
     fs.readdirSync(`${dressesCatalogMainDir}${catalogPaths[pathElementKey]}/`).forEach( fileElement => {
