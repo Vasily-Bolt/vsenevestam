@@ -27,37 +27,37 @@ block variables
     var menuList = [
           {
             name : 'Пышные',
-            href : './lush-dresses.html',
+            href : '/catalog/lush-dresses.html',
           },{
             name : 'Греческие',
-            href : './greece-dresses.html',
+            href : '/catalog/greece-dresses.html',
           },{
             name : 'Кружевные',
-            href : './lace-dresses.html',
+            href : '/catalog/lace-dresses.html',
           },{
             name : 'Прямые',
-            href : './straight-dresses.html',
+            href : '/catalog/straight-dresses.html',
           },{
           //-   name : 'Русалка',
-          //-   href : './mermaid-dresses.html',
+          //-   href : '/catalog/mermaid-dresses.html',
           //- },{
           //-   name : 'Беременным',
-          //-   href : './materity-dresses.html',
+          //-   href : '/catalog/materity-dresses.html',
           //- },{
             name : 'С рукавами',
-            href : './sleeves-dresses.html',
+            href : '/catalog/sleeves-dresses.html',
           },{
             name : 'Со шлейфом',
-            href : './train-dresses.html',
+            href : '/catalog/train-dresses.html',
           //- },{
           //-   name : 'Дешевые',
-          //-   href : './cheap-dresses.html',
+          //-   href : '/catalog/cheap-dresses.html',
           //- },{
           //-   name : 'Распродажа',
-          //-   href : './discount.html',
+          //-   href : '/catalog/discount.html',
           //- },{
           //-   name : 'Контакты',
-          //-   href : './contacts.html',
+          //-   href : '/catalog/contacts.html',
           },
           {
             name : 'Наш Instagram',
@@ -67,7 +67,7 @@ block variables
       var topLogoAndInfo = {
         topText : `<address>${address.city}, ${address.streetHouse}, ${address.subway}</address>`,
         phoneAndMessengers : '7(985)635-5151',
-        logo : './images/everypage/vnlogo.png',
+        logo : '/images/everypage/vnlogo.png',
         
         }
   
@@ -84,6 +84,15 @@ html
     link(rel="shortcut icon" href=globalHead.faviconPathName+'.ico' type="image/x-icon")
     //- <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
     title= PageHead.title
+
+    <!-- Yandex.Metrika counter -->
+    script(type='text/javascript')
+      include ya-counter.js
+    noscript
+      div
+        img(src='https://mc.yandex.ru/watch/22147520' style='position:absolute; left:-9999px;' alt='')
+    <!-- /Yandex.Metrika counter -->
+
     block head
       
   body
@@ -101,5 +110,5 @@ html
         block footer
           .address
             span= `Наш адрес: ${address.city}, ${address.streetHouse}, ${address.subway}`
-          a(href='/policy.html') Политика конфиденциальности
+          a(href='/additional/policy.html') Политика конфиденциальности
       +signup

@@ -53,11 +53,12 @@ const cssLoaders = extra => {
 
 
 let multipleHtmlPlugins = pugFilesToConvert.map(filePath => {
-  const name = filePath.slice(filePath.lastIndexOf('/')+1,filePath.lastIndexOf('.'));
+  const pathName = filePath.split('/').splice(-2,1).join();
+  const name = filePath.slice( filePath.lastIndexOf('/')+1,filePath.lastIndexOf('.') );
   console.log( `Will be added to HTMLWebpackPlugin - ${name}`);
   return new HTMLWebpackPlugin({
     template: filePath,
-    filename: `${name}.html`,
+    filename: `./${pathName}/${name}.html`,
     inject: true,
     chunks: [`main`],
     minify: {

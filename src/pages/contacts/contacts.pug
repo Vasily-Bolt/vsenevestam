@@ -3,6 +3,10 @@ extends ../layout.pug
 
 append variables
   -
+    breadcumbList[breadcumbList.length] = {
+      name : 'Как нас найти',
+      href : 'contacts.html'
+    }
     var PageHead = {
       title : 'Контактная информация свадебного салона Всё Невестам',
       keywords : 'телефон свадебного салона в москве, позвонить в свадебный магазин Все Невестам',
