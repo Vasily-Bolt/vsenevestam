@@ -1,7 +1,10 @@
 mixin main-page-article
   h1.articles__title Свадебный салон Все Невестам в Москве
   p Наиболее актуальная информация в нашем профиле <a class='articles__text-link' href='https://www.instagram.com/vse_nevestam/'>INSTAGRAM</a>
-  img.articles__image(src='./images/index-article/onmain.jpg')
+  picture.articles__image
+      source(media='(max-width: 321px)' srcset=`/images/index-article/onmain_small.jpg`)
+      source(media='(max-width: 376px)' srcset=`/images/index-article/onmain_medium.jpg`)
+      img.articles__image(src=`/images/index-article/onmain.jpg`)
   article.articles
     h2 Приветствуем вас на сайте свадебного магазина 'Всё Невестам'.
     section Вы в поисках подвенечного наряда? В нашем салоне модели всех покроев:
