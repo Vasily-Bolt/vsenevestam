@@ -1,0 +1,145 @@
+Order Deny,Allow
+# AfriNIC:
+Deny from 41 102 105 197
+# APNIC:
+Deny from 1 14 27 36 39
+Deny from 42.0.0.0/7
+Deny from 49
+Deny from 58.0.0.0/7
+Deny from 60.0.0.0/7
+Deny from 101 103 106
+Deny from 110.0.0.0/7
+Deny from 112.0.0.0/5
+Deny from 120.0.0.0/6
+Deny from 124.0.0.0/7
+Deny from 126 133 175 180
+Deny from 182.0.0.0/7
+Deny from 202.0.0.0/7
+Deny from 210.0.0.0/7
+Deny from 218.0.0.0/7
+Deny from 220.0.0.0/6
+# LACNIC:
+Deny from 177 179 181
+Deny from 186.0.0.0/7
+Deny from 189
+Deny from 190.0.0.0/7
+Deny from 200.0.0.0/7
+# Networks:
+Deny from 3 6 9 11 13 15
+Deny from 16.0.0.0/6
+Deny from 20.0.0.0/7
+Deny from 22 25 26
+Deny from 28.0.0.0/7
+Deny from 30 33
+Deny from 34.0.0.0/7
+Deny from 38 40 44 47 48
+Deny from 51
+Deny from 52.0.0.0/6
+Deny from 56.0.0.0/7
+Deny from 214.0.0.0/7
+
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$">
+  Header set Cache-Control "max-age=259200"
+</FilesMatch>
+
+# сжатие text, html, javascript, css, xml:
+<ifModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript
+</ifModule>
+
+#Включаем механизм преобразования
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^vse-nevestam\.ru
+RewriteRule ^(.*)$ https://www.vse-nevestam.ru/$1 [R=permanent,L]
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^(.+)/$
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+RewriteBase /
+ # html #
+#RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php(.*)\ HTTP/ 
+#RewriteRule ^index\.php$ https://www.vse-nevestam.ru [R=301,L] 
+RewriteRule ^index(.*)$ https://www.vse-nevestam.ru [R=301,L]
+
+RewriteRule ^dreses/all/model(.*).html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+RewriteRule ^dreses/pyshnye/model(.*).html$ https://www.vse-nevestam.ru/lush-dresses.html [G,N]
+RewriteRule ^dreses/lace/model(.*).html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+RewriteRule ^dreses/grecheskie/model(.*).html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+RewriteRule ^dreses/priamye/model(.*).html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+RewriteRule ^dreses/rusalka/model(.*).html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+RewriteRule ^dreses/pregnant/model(.*).html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+RewriteRule ^dreses/sleeves/model(.*).html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+RewriteRule ^dreses/trail/model(.*).html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+RewriteRule ^dreses/under16/model(.*).html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+RewriteRule ^dreses/popular/model(.*).html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+RewriteRule ^dreses/discounts/model(.*).html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+
+RewriteRule ^dreses/all/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/svadebnye-platia [G,N]
+RewriteRule ^dreses/pyshnye/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/lush-dresses.html [G,N]
+RewriteRule ^dreses/lace/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/svadebnye-platia/lace [G,N]
+RewriteRule ^dreses/grecheskie/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/svadebnye-platia/grecheskie [G,N]
+RewriteRule ^dreses/priamye/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/svadebnye-platia/priamye [G,N]
+RewriteRule ^dreses/rusalka/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/svadebnye-platia/rusalka [G,N]
+RewriteRule ^dreses/pregnant/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/svadebnye-platia/pregnant [G,N]
+RewriteRule ^dreses/sleeves/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/svadebnye-platia/sleeves [G,N]
+RewriteRule ^dreses/trail/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/svadebnye-platia/trail [G,N]
+RewriteRule ^dreses/under16/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/svadebnye-platia/under16 [G,N]
+RewriteRule ^dreses/popular/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/svadebnye-platia/popular [G,N]
+RewriteRule ^dreses/discounts/(.*)/(.*)/catalog.html$ https://www.vse-nevestam.ru/svadebnye-platia/discounts [G,N]
+#RewriteRule ^jackets(.*)$ https://www.vse-nevestam.ru/accessories [R=301,L]
+ 
+
+
+RewriteRule ^brides/all?$ https://www.vse-nevestam.ru/svadebnye-platia [R=301,L]
+RewriteRule ^brides/(.*).html?$ https://www.vse-nevestam.ru/svadebnye-platia [R=301,L]
+RewriteRule ^accessories?$ dress.php?whats=accessories [G,N]
+RewriteRule ^accessories/filter=(.*)?$ dress.php?whats=accessories&filter=$1 [G,N]
+
+RewriteRule ^svadebnye-platia?$ https://www.vse-nevestam.ru/all-dresses.html [L]
+RewriteRule ^svadebnye-platia/popular?$ https://www.vse-nevestam.ru/all-dresses.html [L]
+RewriteRule ^svadebnye-platia/pyshnye?$ https://www.vse-nevestam.ru/lush-dresses.html [L]
+RewriteRule ^svadebnye-platia/lace?$ https://www.vse-nevestam.ru/lace-dresses.html [L]
+RewriteRule ^svadebnye-platia/grecheskie?$ https://www.vse-nevestam.ru/greece-dresses.html [L]
+RewriteRule ^svadebnye-platia/priamye?$ https://www.vse-nevestam.ru/straight-dresses.html [L]
+RewriteRule ^svadebnye-platia/rusalka?$ https://www.vse-nevestam.ru/mermaid-dresses.html [L]
+RewriteRule ^svadebnye-platia/pregnant?$ https://www.vse-nevestam.ru/materity-dresses.html [L]
+RewriteRule ^svadebnye-platia/sleeves?$ https://www.vse-nevestam.ru/sleeves-dresses.html [L]
+RewriteRule ^svadebnye-platia/trail?$ https://www.vse-nevestam.ru/train-dresses.html [L]
+RewriteRule ^svadebnye-platia/under16?$ https://www.vse-nevestam.ru/cheap-dresses.html [L]
+RewriteRule ^svadebnye-platia/discounts?$ https://www.vse-nevestam.ru/discount.html [L]
+
+
+
+RewriteRule ^bags/(.*)?$ 404.html [NC,L]
+RewriteRule ^trail/(.*)?$ 404.html [NC,L]
+RewriteRule ^faq.html$ https://www.vse-nevestam.ru/svadebnye-platia [R=301,L]
+RewriteRule ^feedback.html$ https://www.vse-nevestam.ru/svadebnye-platia [R=301,L]
+RewriteRule ^oformlenie_svadby.html$ https://www.vse-nevestam.ru/svadebnye-platia [R=301,L]
+RewriteRule ^sitemap.html?$ https://www.vse-nevestam.ru/svadebnye-platia [R=301,L]
+
+
+RewriteRule ^statji/(.*)?$ https://www.vse-nevestam.ru/$1.html [NC,L]
+
+# RewriteRule ^statji/glavnyi-atribut-svadby.html?$ https://www.vse-nevestam.ru/glavnyi-atribut-svadby.html [R=301,L]
+# RewriteRule ^statji/krugevnye-svadebnye-platia.html?$ https://www.vse-nevestam.ru/krugevnye-svadebnye-platia.html [R=301,L]
+# RewriteRule ^statji/stili-svadebnyh-platiev.html?$ https://www.vse-nevestam.ru/stili-svadebnyh-platiev.html [R=301,L]
+# RewriteRule ^statji/modnye-fasony-platiev.html?$ https://www.vse-nevestam.ru/modnye-fasony-platiev.html [R=301,L]
+# RewriteRule ^statji/torgestvennyi-den.html?$ https://www.vse-nevestam.ru/torgestvennyi-den.html [R=301,L]
+# RewriteRule ^statji/tematicheskaya-svadba.html?$ https://www.vse-nevestam.ru/tematicheskaya-svadba.html [R=301,L]
+# RewriteRule ^statji/podbor-platia-po-telu-1.html?$ https://www.vse-nevestam.ru/podbor-platia-po-telu-1.html [R=301,L]
+# RewriteRule ^statji/podbor-platia-po-telu-2.html?$ https://www.vse-nevestam.ru/podbor-platia-po-telu-2.html [R=301,L]
+# RewriteRule ^statji/podbor-platia-po-telu-3.html?$ https://www.vse-nevestam.ru/podbor-platia-po-telu-3.html [R=301,L]
+# RewriteRule ^statji/svadebnoye-platie-bu.html?$ https://www.vse-nevestam.ru/svadebnoye-platie-bu.html [R=301,L]
+# RewriteRule ^statji/dekoracii-svadebnymi-rastenijami.html?$ https://www.vse-nevestam.ru/dekoracii-svadebnymi-rastenijami.html [R=301,L]
+# RewriteRule ^statji/mesta-provedenija-medovogo-mesaca-pt1.html?$ https://www.vse-nevestam.ru/mesta-provedenija-medovogo-mesaca-pt1.html [R=301,L]
+# RewriteRule ^statji/mesta-provedenija-medovogo-mesaca-pt2.html?$ https://www.vse-nevestam.ru/mesta-provedenija-medovogo-mesaca-pt2.html [R=301,L]
+# RewriteRule ^statji/mesta-provedenija-medovogo-mesaca-pt3.html?$ https://www.vse-nevestam.ru/mesta-provedenija-medovogo-mesaca-pt3.html [R=301,L]
+# RewriteRule ^statji/svadebnoye-platie-dlya-polnoj-nevesty.html?$ https://www.vse-nevestam.ru/svadebnoye-platie-dlya-polnoj-nevesty.html [R=301,L]
+# RewriteRule ^statji/vybor-platia-po-photo.html?$ https://www.vse-nevestam.ru/vybor-platia-po-photo.html [R=301,L]
+# RewriteRule ^statji/plenitelnyj-obraz-nevesty.html?$ https://www.vse-nevestam.ru/plenitelnyj-obraz-nevesty.html [R=301,L]
+
+#RewriteRule ^statji/svadebnye-trendy-2020.html?$ articles00.php?id=23 [NC,L]
